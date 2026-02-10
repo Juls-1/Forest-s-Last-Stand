@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdvlwilicnskj"]
+
+[ext_resource type="Script" uid="uid://cw81juj4g3poa" path="res://minigames/whack-a-stone/scripts/fast_rock.gd" id="1_fkhh5"]
+[ext_resource type="Texture2D" uid="uid://cs3ppp7sdjt3n" path="res://minigames/whack-a-stone/sprites/enemy_rock_3.png" id="2_fkhh5"]
+[ext_resource type="Script" uid="uid://c6ikkj734t7ju" path="res://minigames/whack-a-stone/scripts/hitbox.gd" id="3_fkhh5"]
+
+[node name="FastRock" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_fkhh5")
+
+[node name="Visuals" type="Node2D" parent="."]
+position = Vector2(125, 342)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_fkhh5")
+
+[node name="Hitbox" type="Node2D" parent="."]
+position = Vector2(125, 121)
+
+[node name="Area2D" type="Area2D" parent="Hitbox"]
+script = ExtResource("3_fkhh5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox/Area2D"]
+polygon = PackedVector2Array(-99, 89, 21, -131, 93, 89)

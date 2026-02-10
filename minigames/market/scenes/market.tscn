@@ -1,0 +1,582 @@
+[gd_scene load_steps=26 format=3 uid="uid://bl8q7aovqc73q"]
+
+[ext_resource type="Script" uid="uid://62eywsbbiswt" path="res://minigames/market/scripts/market.gd" id="0_market"]
+[ext_resource type="Texture2D" uid="uid://s44ra7s7urvm" path="res://minigames/roulette/assets/imgs/Golden Coin.png" id="1_51tut"]
+[ext_resource type="Texture2D" uid="uid://dwjfkvna7ku0i" path="res://assets/art/Pixel Art Icon Pack - RPG/Material/Wood Log.png" id="2_6iywa"]
+[ext_resource type="FontFile" uid="uid://cofv808qgpv2h" path="res://assets/fonts/Silkscreen-Regular.ttf" id="2_gbh4t"]
+[ext_resource type="Texture2D" uid="uid://cfg84823gb43m" path="res://assets/art/ui/MediavelFree.png" id="2_rktj7"]
+[ext_resource type="Texture2D" uid="uid://d0411a4cbo2s3" path="res://assets/art/Pixel Art Icon Pack - RPG/Weapon & Tool/Axe.png" id="4_gbh4t"]
+[ext_resource type="Texture2D" uid="uid://dgj0yvjxaxvcc" path="res://assets/art/Pixel Art Icon Pack - RPG/Weapon & Tool/Pickaxe.png" id="5_rktj7"]
+[ext_resource type="Texture2D" uid="uid://ckltr171ok6bd" path="res://assets/art/Pixel Art Icon Pack - RPG/rock.png" id="6_cfbf1"]
+[ext_resource type="Texture2D" uid="uid://o1ia5yf04egs" path="res://assets/art/ui/scrollsandblocks.png" id="6_rktj7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4e7i"]
+bg_color = Color(0.28235295, 0.30588236, 0.18431373, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5176471, 0.5568628, 0.36862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmwfv"]
+atlas = ExtResource("2_rktj7")
+region = Rect2(0, 16, 80, 80)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rktj7"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dh6q"]
+atlas = ExtResource("6_rktj7")
+region = Rect2(224, 224, 96, 96)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmwfv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbh4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfbf1"]
+atlas = ExtResource("6_rktj7")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d5xt"]
+atlas = ExtResource("6_rktj7")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikfdt"]
+atlas = ExtResource("6_rktj7")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbjti"]
+atlas = ExtResource("6_rktj7")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ikfdt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cfbf1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3d5xt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbh4t"]
+atlas = ExtResource("6_rktj7")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rktj7"]
+atlas = ExtResource("6_rktj7")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66nev"]
+atlas = ExtResource("6_rktj7")
+region = Rect2(0, 64, 96, 32)
+
+[node name="Market" type="CanvasLayer"]
+layer = 10
+script = ExtResource("0_market")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(1280, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_x4e7i")
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
+position = Vector2(672, 344)
+scale = Vector2(15, 10)
+texture = SubResource("AtlasTexture_mmwfv")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Header" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/Header"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+theme_override_font_sizes/font_size = 35
+text = "Mercado"
+
+[node name="Spacer" type="Label" parent="PanelContainer/MarginContainer/Header"]
+layout_mode = 2
+text = "                        "
+
+[node name="MoneyIcon" type="TextureRect" parent="PanelContainer/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("1_51tut")
+expand_mode = 2
+
+[node name="Money" type="Label" parent="PanelContainer/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WoodIcon" type="TextureRect" parent="PanelContainer/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("2_6iywa")
+expand_mode = 2
+
+[node name="Wood" type="Label" parent="PanelContainer/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StoneIcon" type="TextureRect" parent="PanelContainer/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("6_cfbf1")
+expand_mode = 2
+
+[node name="Stone" type="Label" parent="PanelContainer/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+theme_override_font_sizes/font_size = 20
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarketSections" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="ResourceContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/MarketSections"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rktj7")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(350, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_7dh6q")
+
+[node name="ResourceSection" type="VBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 4
+
+[node name="ResourceTitleContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mmwfv")
+
+[node name="ResourcesTitle" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceTitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+theme_override_font_sizes/font_size = 22
+text = "RECURSOS"
+
+[node name="ResourceContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gbh4t")
+
+[node name="ResourceMargin" type="MarginContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="Resources" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Wood" type="VBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="WoodBuyBtn" type="Button" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Wood"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "COMPRAR"
+icon = SubResource("AtlasTexture_cfbf1")
+flat = true
+icon_alignment = 1
+
+[node name="WoodBuyTag" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Wood"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que costara comprar este recurso"
+theme_override_constants/separation = 4
+
+[node name="WoodBuyPrice" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Wood/WoodBuyTag"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="BuyIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Wood/WoodBuyTag"]
+layout_mode = 2
+texture = ExtResource("1_51tut")
+
+[node name="WoodIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Wood"]
+layout_mode = 2
+texture = ExtResource("2_6iywa")
+expand_mode = 5
+
+[node name="WoodSellBtn" type="Button" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Wood"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "VENDER"
+icon = SubResource("AtlasTexture_3d5xt")
+flat = true
+icon_alignment = 1
+
+[node name="WoodSellTag" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Wood"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que obtendras al vender este recurso"
+
+[node name="WoodSellPrice" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Wood/WoodSellTag"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="SellIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Wood/WoodSellTag"]
+layout_mode = 2
+texture = ExtResource("1_51tut")
+
+[node name="Rock" type="VBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="RockBuyBtn" type="Button" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Rock"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "COMPRAR"
+icon = SubResource("AtlasTexture_ikfdt")
+flat = true
+icon_alignment = 1
+
+[node name="RockBuyTag" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Rock"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que costara comprar este recurso"
+
+[node name="RockBuyPrice" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Rock/RockBuyTag"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="BuyIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Rock/RockBuyTag"]
+layout_mode = 2
+texture = ExtResource("1_51tut")
+
+[node name="RockIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Rock"]
+custom_minimum_size = Vector2(100, 103)
+layout_mode = 2
+texture = ExtResource("6_cfbf1")
+expand_mode = 5
+
+[node name="RockSellBtn" type="Button" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Rock"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "VENDER"
+icon = SubResource("AtlasTexture_sbjti")
+flat = true
+icon_alignment = 1
+
+[node name="RockSellTag" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Rock"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que obtendras al vender este recurso"
+
+[node name="RockSellPrice" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Rock/RockSellTag"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="SellIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ResourceContainer/ResourceSection/ResourceContainer/ResourceMargin/Resources/Rock/RockSellTag"]
+layout_mode = 2
+texture = ExtResource("1_51tut")
+
+[node name="ToolContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/MarketSections"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ikfdt")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(350, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_7dh6q")
+
+[node name="ToolSection" type="VBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Las herramientas tienen 3 tiers y ayudan en su respectivo minijuego."
+
+[node name="ToolTitleContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cfbf1")
+
+[node name="ToolTitle" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolTitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+theme_override_font_sizes/font_size = 22
+text = "HERRAMIENTAS"
+
+[node name="ToolContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3d5xt")
+
+[node name="ToolMargin" type="MarginContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Tools" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Axe" type="VBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="AxeLabel" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "HACHA"
+
+[node name="AxeIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe"]
+layout_mode = 2
+texture = ExtResource("4_gbh4t")
+expand_mode = 5
+
+[node name="AxeUpgradeButton" type="Button" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "MEJORAR"
+icon = SubResource("AtlasTexture_gbh4t")
+flat = true
+icon_alignment = 1
+
+[node name="AxeGoldPrice" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que obtendras al vender este recurso"
+
+[node name="AxeGoldPriceLabel" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe/AxeGoldPrice"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="GoldIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe/AxeGoldPrice"]
+layout_mode = 2
+texture = ExtResource("1_51tut")
+
+[node name="AxeWoodPrice" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que obtendras al vender este recurso"
+
+[node name="AxeWoodPriceLabel" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe/AxeWoodPrice"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="WoodIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe/AxeWoodPrice"]
+layout_mode = 2
+texture = ExtResource("2_6iywa")
+
+[node name="AxeStonePrice" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que obtendras al vender este recurso"
+
+[node name="AxeStonePriceLabel" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe/AxeStonePrice"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="StoneIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/Axe/AxeStonePrice"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("6_cfbf1")
+expand_mode = 3
+
+[node name="PickAxe" type="VBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="PickaxeLabel" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "PICO"
+
+[node name="PickaxeIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe"]
+layout_mode = 2
+texture = ExtResource("5_rktj7")
+expand_mode = 5
+
+[node name="PickaxeUpgradeBtn" type="Button" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "MEJORAR"
+icon = SubResource("AtlasTexture_rktj7")
+flat = true
+icon_alignment = 1
+
+[node name="PickaxeGoldPrice" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que obtendras al vender este recurso"
+
+[node name="PickaxeGoldPriceLabel" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe/PickaxeGoldPrice"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="GoldIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe/PickaxeGoldPrice"]
+layout_mode = 2
+texture = ExtResource("1_51tut")
+
+[node name="PickaxeWoodPrice" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que obtendras al vender este recurso"
+
+[node name="PickaxeWoodPriceLabel" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe/PickaxeWoodPrice"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="WoodIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe/PickaxeWoodPrice"]
+layout_mode = 2
+texture = ExtResource("2_6iywa")
+
+[node name="PickaxeStonePrice" type="HBoxContainer" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Lo que obtendras al vender este recurso"
+
+[node name="PickaxeStonePriceLabel" type="Label" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe/PickaxeStonePrice"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+text = "X"
+
+[node name="StoneIcon" type="TextureRect" parent="PanelContainer/MarginContainer/MarketSections/ToolContainer/ToolSection/ToolContainer/ToolMargin/Tools/PickAxe/PickaxeStonePrice"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("6_cfbf1")
+expand_mode = 3
+
+[node name="BackBtn" type="Button" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+theme_override_font_sizes/font_size = 25
+text = "VOLVER"
+icon = SubResource("AtlasTexture_66nev")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="UnlockBtn" type="Button" parent="PanelContainer/MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gbh4t")
+theme_override_font_sizes/font_size = 25
+text = "unlock"
+icon = SubResource("AtlasTexture_66nev")
+flat = true
+icon_alignment = 1
+expand_icon = true

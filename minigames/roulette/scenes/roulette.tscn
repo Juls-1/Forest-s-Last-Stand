@@ -1,0 +1,429 @@
+[gd_scene load_steps=39 format=3 uid="uid://bhel5clr4552l"]
+
+[ext_resource type="Texture2D" uid="uid://bbv0ohrc6ucn8" path="res://minigames/roulette/assets/imgs/9.jpg" id="1_x73ea"]
+[ext_resource type="Texture2D" uid="uid://cjmn2qxok2qfi" path="res://minigames/roulette/assets/imgs/10.jpg" id="2_6afvn"]
+[ext_resource type="Texture2D" uid="uid://o1ia5yf04egs" path="res://assets/art/ui/scrollsandblocks.png" id="2_ldnji"]
+[ext_resource type="Texture2D" uid="uid://cfg84823gb43m" path="res://assets/art/ui/MediavelFree.png" id="2_p2ftf"]
+[ext_resource type="Texture2D" uid="uid://r7qklbpyo0b2" path="res://minigames/roulette/assets/imgs/5.jpg" id="3_6wnlc"]
+[ext_resource type="FontFile" uid="uid://cofv808qgpv2h" path="res://assets/fonts/Silkscreen-Regular.ttf" id="3_p2ftf"]
+[ext_resource type="Texture2D" uid="uid://dtydid68ktqoh" path="res://minigames/roulette/assets/imgs/6.jpg" id="4_lp4gq"]
+[ext_resource type="Texture2D" uid="uid://bqijy3jxxl453" path="res://minigames/roulette/assets/imgs/11.jpg" id="5_waas3"]
+[ext_resource type="Texture2D" uid="uid://ccde3et0kvmb" path="res://minigames/roulette/assets/imgs/2.jpg" id="6_bjn61"]
+[ext_resource type="Texture2D" uid="uid://du7xomf1y5wc7" path="res://assets/art/ui/freefantasy.png" id="6_fj7uj"]
+[ext_resource type="Texture2D" uid="uid://b8e7vks0lemvt" path="res://minigames/roulette/assets/imgs/13.jpg" id="7_co0ci"]
+[ext_resource type="Texture2D" uid="uid://d3f6du1sw8wqt" path="res://minigames/roulette/assets/imgs/12.jpg" id="8_8wylf"]
+[ext_resource type="Texture2D" uid="uid://cse82ioyeeb5x" path="res://minigames/roulette/assets/imgs/0.jpg" id="9_8he63"]
+[ext_resource type="Texture2D" uid="uid://blsko4ogcosig" path="res://minigames/roulette/assets/imgs/7.jpg" id="10_yrbwv"]
+[ext_resource type="Texture2D" uid="uid://dihvn87s5ggq0" path="res://minigames/roulette/assets/imgs/8.jpg" id="11_fyshn"]
+[ext_resource type="Texture2D" uid="uid://bfyrkotxnbgt8" path="res://minigames/roulette/assets/imgs/15.jpg" id="12_7lkhj"]
+[ext_resource type="Texture2D" uid="uid://dgw4cwtedt2fl" path="res://minigames/roulette/assets/imgs/14.jpg" id="13_jhaao"]
+[ext_resource type="Texture2D" uid="uid://k1kwxqcu8kos" path="res://minigames/roulette/assets/imgs/3.jpg" id="14_gdmip"]
+[ext_resource type="Texture2D" uid="uid://y1rw7keml3x3" path="res://minigames/roulette/assets/imgs/4.jpg" id="15_pi76v"]
+[ext_resource type="Texture2D" uid="uid://dishen0tvbrf7" path="res://minigames/roulette/assets/imgs/1.jpg" id="16_qtuqj"]
+[ext_resource type="Texture2D" uid="uid://tt2dpbl2nrl7" path="res://minigames/roulette/assets/imgs/16.jpg" id="17_n301w"]
+[ext_resource type="Texture2D" uid="uid://s44ra7s7urvm" path="res://minigames/roulette/assets/imgs/Golden Coin.png" id="18_ucm42"]
+[ext_resource type="Script" uid="uid://dxfw61lcn4nq4" path="res://minigames/roulette/scripts/roulette.gd" id="19_roulette"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l21he"]
+bg_color = Color(0.28235295, 0.30588236, 0.18431373, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5176471, 0.5568628, 0.36862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq2wf"]
+atlas = ExtResource("2_p2ftf")
+region = Rect2(0, 16, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj7uj"]
+atlas = ExtResource("2_ldnji")
+region = Rect2(224, 224, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2ftf"]
+atlas = ExtResource("2_p2ftf")
+region = Rect2(80, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gme0v"]
+atlas = ExtResource("2_p2ftf")
+region = Rect2(96, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dx4n"]
+atlas = ExtResource("6_fj7uj")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nopn"]
+atlas = ExtResource("6_fj7uj")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x73ea"]
+bg_color = Color(0.3328807, 0.33288068, 0.33288068, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 15
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6afvn"]
+bg_color = Color(0.8784314, 0.7921569, 0.2627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65yoq"]
+bg_color = Color(0.8784314, 0.7921569, 0.2627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srnur"]
+atlas = ExtResource("2_ldnji")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wstj4"]
+atlas = ExtResource("2_ldnji")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q58qt"]
+atlas = ExtResource("2_ldnji")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0gir"]
+atlas = ExtResource("2_ldnji")
+region = Rect2(0, 64, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbj77"]
+atlas = ExtResource("2_ldnji")
+region = Rect2(0, 64, 96, 32)
+
+[node name="Node2D" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("19_roulette")
+
+[node name="Roulette" type="PanelContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_l21he")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Roulette"]
+position = Vector2(672.00006, 344)
+scale = Vector2(15, 10)
+texture = SubResource("AtlasTexture_pq2wf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Roulette"]
+position = Vector2(664, 360)
+scale = Vector2(8, 5)
+texture = SubResource("AtlasTexture_fj7uj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Roulette"]
+z_index = 1
+position = Vector2(352, 304)
+scale = Vector2(4, 3.5)
+texture = SubResource("AtlasTexture_p2ftf")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Roulette"]
+z_index = 1
+position = Vector2(928, 304)
+scale = Vector2(4, 3.5)
+texture = SubResource("AtlasTexture_gme0v")
+
+[node name="MarginContainer" type="MarginContainer" parent="Roulette"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Header" type="HBoxContainer" parent="Roulette/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Title" type="Label" parent="Roulette/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p2ftf")
+theme_override_font_sizes/font_size = 35
+text = "Prueba tu Suerte"
+
+[node name="Spacer" type="Label" parent="Roulette/MarginContainer/Header"]
+layout_mode = 2
+text = "                                            "
+
+[node name="MoneyIcon" type="TextureRect" parent="Roulette/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("18_ucm42")
+expand_mode = 2
+
+[node name="Money" type="Label" parent="Roulette/MarginContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p2ftf")
+theme_override_font_sizes/font_size = 20
+text = "x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI_Container" type="VBoxContainer" parent="Roulette/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Bet" type="VBoxContainer" parent="Roulette/MarginContainer/UI_Container"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BetText" type="HBoxContainer" parent="Roulette/MarginContainer/UI_Container/Bet"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BetAmountLabel" type="Label" parent="Roulette/MarginContainer/UI_Container/Bet/BetText"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p2ftf")
+theme_override_font_sizes/font_size = 20
+text = "Apuesta: x"
+
+[node name="BetIcon" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/Bet/BetText"]
+layout_mode = 2
+texture = ExtResource("18_ucm42")
+expand_mode = 2
+
+[node name="BetSlider" type="HSlider" parent="Roulette/MarginContainer/UI_Container/Bet"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_icons/grabber = SubResource("AtlasTexture_1dx4n")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_2nopn")
+theme_override_styles/slider = SubResource("StyleBoxFlat_x73ea")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6afvn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_65yoq")
+value = 1.0
+
+[node name="RouletteArea" type="Control" parent="Roulette/MarginContainer/UI_Container"]
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RouletteViewport" type="ScrollContainer" parent="Roulette/MarginContainer/UI_Container/RouletteArea"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="Strip" type="HBoxContainer" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="9" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("1_x73ea")
+
+[node name="10" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("2_6afvn")
+
+[node name="5" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("3_6wnlc")
+
+[node name="6" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("4_lp4gq")
+
+[node name="11" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("5_waas3")
+
+[node name="2" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("6_bjn61")
+
+[node name="13" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("7_co0ci")
+
+[node name="12" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("8_8wylf")
+
+[node name="0" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("9_8he63")
+
+[node name="7" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("10_yrbwv")
+
+[node name="8" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("11_fyshn")
+
+[node name="15" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("12_7lkhj")
+
+[node name="14" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("13_jhaao")
+
+[node name="3" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("14_gdmip")
+
+[node name="4" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("15_pi76v")
+
+[node name="1" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("16_qtuqj")
+
+[node name="16" type="TextureRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea/RouletteViewport/Strip"]
+layout_mode = 2
+texture = ExtResource("17_n301w")
+
+[node name="Pointer" type="ColorRect" parent="Roulette/MarginContainer/UI_Container/RouletteArea"]
+custom_minimum_size = Vector2(8, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -60.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(1, 1, 0.1254902, 1)
+
+[node name="BetButtons" type="HBoxContainer" parent="Roulette/MarginContainer/UI_Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="RedBtn" type="Button" parent="Roulette/MarginContainer/UI_Container/BetButtons"]
+custom_minimum_size = Vector2(110, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p2ftf")
+theme_override_font_sizes/font_size = 25
+text = "ROJO"
+icon = SubResource("AtlasTexture_srnur")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="BlackBtn" type="Button" parent="Roulette/MarginContainer/UI_Container/BetButtons"]
+custom_minimum_size = Vector2(110, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p2ftf")
+theme_override_font_sizes/font_size = 25
+text = "NEGRO"
+icon = SubResource("AtlasTexture_wstj4")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="GreenBtn" type="Button" parent="Roulette/MarginContainer/UI_Container/BetButtons"]
+custom_minimum_size = Vector2(110, 75)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p2ftf")
+theme_override_font_sizes/font_size = 25
+text = "VERDE"
+icon = SubResource("AtlasTexture_q58qt")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ActionButtons" type="HBoxContainer" parent="Roulette/MarginContainer/UI_Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="AcceptBtn" type="Button" parent="Roulette/MarginContainer/UI_Container/ActionButtons"]
+custom_minimum_size = Vector2(170, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p2ftf")
+theme_override_font_sizes/font_size = 25
+text = "ACEPTAR"
+icon = SubResource("AtlasTexture_r0gir")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="CancelBtn" type="Button" parent="Roulette/MarginContainer/UI_Container/ActionButtons"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p2ftf")
+theme_override_font_sizes/font_size = 25
+text = "CANCELAR"
+icon = SubResource("AtlasTexture_tbj77")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Message" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 640.0
+offset_right = 1284.0
+offset_bottom = 671.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_p2ftf")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1

@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://oh48t145y0cc"]
+
+[ext_resource type="Script" uid="uid://c3218ulfabjos" path="res://scripts/tree_segment.gd" id="1_j8ln4"]
+[ext_resource type="Texture2D" uid="uid://c0u15g6h6u37n" path="res://sprites/tree_log_tiles.png" id="2_ctvxr"]
+[ext_resource type="Texture2D" uid="uid://dnp7o1rd8vd5s" path="res://sprites/tree_breaking.png" id="3_vsuxa"]
+[ext_resource type="Texture2D" uid="uid://dap3kf0usm3ou" path="res://sprites/branch.png" id="4_od62e"]
+[ext_resource type="Texture2D" uid="uid://bfjs6m5yjcaeg" path="res://sprites/tree_particles_outlined.png" id="5_1s6et"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1p6gb"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 4
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_1s6et"]
+offsets = PackedFloat32Array(0.8, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="TreeSegment" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_j8ln4")
+
+[node name="BranchSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(256, 12)
+scale = Vector2(4, 4)
+texture = ExtResource("4_od62e")
+
+[node name="SegmentSprite" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_ctvxr")
+hframes = 4
+frame = 1
+
+[node name="BreakingAnim" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("3_vsuxa")
+hframes = 5
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_1p6gb")
+emitting = false
+texture = ExtResource("5_1s6et")
+lifetime = 0.3
+one_shot = true
+speed_scale = 0.7
+explosiveness = 0.8
+emission_shape = 1
+emission_sphere_radius = 12.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 350.0
+initial_velocity_max = 700.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_1s6et")
+anim_offset_max = 1.0

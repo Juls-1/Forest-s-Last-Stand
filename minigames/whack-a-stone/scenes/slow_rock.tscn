@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1hhfnwkrf1ih"]
+
+[ext_resource type="Script" uid="uid://dmptl2lgxrss" path="res://minigames/whack-a-stone/scripts/slow_rock.gd" id="1_c2oa7"]
+[ext_resource type="Texture2D" uid="uid://8a7ouey164ss" path="res://minigames/whack-a-stone/sprites/enemy_rock_1.png" id="2_g5cc7"]
+[ext_resource type="Script" uid="uid://c6ikkj734t7ju" path="res://minigames/whack-a-stone/scripts/hitbox.gd" id="3_c2oa7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2oa7"]
+size = Vector2(208.5, 120)
+
+[node name="SlowRock" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_c2oa7")
+
+[node name="Visuals" type="Node2D" parent="."]
+position = Vector2(124, 290)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_g5cc7")
+
+[node name="Hitbox" type="Node2D" parent="."]
+position = Vector2(124, 164)
+
+[node name="Area2D" type="Area2D" parent="Hitbox"]
+script = ExtResource("3_c2oa7")
+
+[node name="HBTop" type="CollisionShape2D" parent="Hitbox/Area2D"]
+position = Vector2(3, -48)
+scale = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_c2oa7")
+debug_color = Color(9.174924e-08, 0.06360374, 0.082066275, 0.41960785)
+
+[node name="HBBottom" type="CollisionShape2D" parent="Hitbox/Area2D"]
+position = Vector2(0, 18)
+scale = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_c2oa7")
+debug_color = Color(8.122064e-08, 0.082261, 0.10362779, 0.41960785)

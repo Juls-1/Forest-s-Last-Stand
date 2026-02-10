@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b33mke2lc2ns8"]
+
+[ext_resource type="Texture2D" uid="uid://b2qrdrboteas4" path="res://minigames/whack-a-stone/sprites/pickaxe_cursor.png" id="1_wxr40"]
+[ext_resource type="Script" uid="uid://ctv5uxbshy540" path="res://minigames/whack-a-stone/scripts/custom_cursor.gd" id="1_x4uts"]
+
+[node name="CustomCursor" type="Node2D"]
+z_index = 2
+texture_filter = 1
+script = ExtResource("1_x4uts")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 21)
+scale = Vector2(2, 2)
+texture = ExtResource("1_wxr40")
+offset = Vector2(7.5, -10)
+hframes = 2

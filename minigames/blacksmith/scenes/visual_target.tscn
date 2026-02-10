@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dds3a8wrx1b20"]
+
+[ext_resource type="Script" uid="uid://cgb0ga07ru8qw" path="res://scripts/visual_target.gd" id="1_6p1vl"]
+[ext_resource type="Texture2D" uid="uid://byhfy0b3o56fj" path="res://sprites/metall_ball.png" id="2_y8hof"]
+
+[node name="VisualTarget" type="Node2D"]
+script = ExtResource("1_6p1vl")
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visual"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_y8hof")

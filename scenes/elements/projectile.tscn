@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpd4jx3yg16dt"]
+
+[ext_resource type="Texture2D" uid="uid://dhew5guo7xbul" path="res://icon.svg" id="1_c8fcr"]
+[ext_resource type="Script" uid="uid://s5q6akx01cd7" path="res://scripts/projectile.gd" id="1_q3m7n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3m7n"]
+radius = 2.0
+height = 8.0
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_q3m7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_q3m7n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.103743516, 0.10374353, 0.103743516, 1)
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(0.0578125, 0.010937504)
+texture = ExtResource("1_c8fcr")
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cubyeolut7xuq"]
+
+[ext_resource type="Script" uid="uid://b0c1u7dsq5blk" path="res://scripts/game_manager.gd" id="1_4z8x9"]
+[ext_resource type="Script" uid="uid://resource_manager" path="res://scripts/models/resource_manager.gd" id="2_resource"]
+[ext_resource type="Script" uid="uid://wave_manager" path="res://scripts/controllers/wave_manager.gd" id="3_wave"]
+[ext_resource type="Script" uid="uid://placement_manager" path="res://scripts/controllers/placement_manager.gd" id="4_placement"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_4z8x9")
+
+[node name="GameState" type="Node" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="ResourceManager" type="Node" parent="."]
+script = ExtResource("2_resource")
+
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("3_wave")
+
+[node name="PlacementManager" type="Node" parent="."]
+script = ExtResource("4_placement")
+
+[node name="Units" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Environment" type="Node2D" parent="."]

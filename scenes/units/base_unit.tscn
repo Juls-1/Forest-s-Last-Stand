@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj7u8qwnajfcg"]
+
+[ext_resource type="Script" uid="uid://wr3gyiagx427" path="res://scripts/units/unit.gd" id="1_qnu22"]
+[ext_resource type="Script" path="res://scripts/components/sound_component.gd" id="SoundComp_SCRIPT"]
+[ext_resource type="Script" uid="uid://health_component" path="res://scripts/components/health_component.gd" id="2_health"]
+[ext_resource type="Script" uid="uid://movement_component" path="res://scripts/components/movement_component.gd" id="3_movement"]
+[ext_resource type="Script" uid="uid://attack_component" path="res://scripts/components/attack_component.gd" id="4_attack"]
+[ext_resource type="Script" path="res://scripts/components/animation_component.gd" id="5_animation"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_attack"]
+radius = 100.0
+
+[node name="BaseUnit" type="CharacterBody2D"]
+script = ExtResource("1_qnu22")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_health")
+
+[node name="MovementComponent" type="Node" parent="."]
+script = ExtResource("3_movement")
+
+[node name="AttackComponent" type="Node" parent="."]
+script = ExtResource("4_attack")
+
+[node name="AnimationComponent" type="Node" parent="."]
+script = ExtResource("5_animation")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_attack")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Muzzle" type="Marker2D" parent="."]
+
+[node name="SoundComponent" type="Node2D" parent="."]
+script = ExtResource("SoundComp_SCRIPT")

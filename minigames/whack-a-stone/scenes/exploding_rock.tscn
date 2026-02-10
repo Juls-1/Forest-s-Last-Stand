@@ -1,0 +1,126 @@
+[gd_scene load_steps=15 format=3 uid="uid://jbhd7dss4ja8"]
+
+[ext_resource type="Script" uid="uid://cjmvokx5ffc1h" path="res://minigames/whack-a-stone/scripts/exploding_rock.gd" id="1_j2hfv"]
+[ext_resource type="Texture2D" uid="uid://dmoxe58ubg731" path="res://minigames/whack-a-stone/sprites/enemy_rock_2.png" id="2_8skbq"]
+[ext_resource type="PackedScene" uid="uid://c4vqdakmi7vd5" path="res://minigames/whack-a-stone/scenes/explosion.tscn" id="2_hresq"]
+[ext_resource type="Texture2D" uid="uid://cfcmd3xd7c00g" path="res://minigames/whack-a-stone/sprites/sparks_anim.png" id="2_u30ic"]
+[ext_resource type="Script" uid="uid://c6ikkj734t7ju" path="res://minigames/whack-a-stone/scripts/hitbox.gd" id="3_u30ic"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2hfv"]
+atlas = ExtResource("2_u30ic")
+region = Rect2(0, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hresq"]
+atlas = ExtResource("2_u30ic")
+region = Rect2(7, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e66np"]
+atlas = ExtResource("2_u30ic")
+region = Rect2(14, 0, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vk2u"]
+atlas = ExtResource("2_u30ic")
+region = Rect2(21, 0, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dtsjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2hfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hresq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e66np")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vk2u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_u30ic"]
+offsets = PackedFloat32Array(0, 0.61333334)
+colors = PackedColorArray(0.7411765, 0.15294118, 0.019607844, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j2hfv"]
+gradient = SubResource("Gradient_u30ic")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2hfv"]
+size = Vector2(72, 212)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hresq"]
+size = Vector2(180, 76)
+
+[node name="ExplodingRock" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_j2hfv")
+explosion = ExtResource("2_hresq")
+
+[node name="Visuals" type="Node2D" parent="."]
+position = Vector2(116, 300)
+
+[node name="Rock" type="Sprite2D" parent="Visuals"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_8skbq")
+
+[node name="Sparks" type="Node2D" parent="Visuals"]
+
+[node name="Spark" type="AnimatedSprite2D" parent="Visuals/Sparks"]
+position = Vector2(10, -18)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_dtsjf")
+autoplay = "default"
+frame_progress = 0.50492543
+
+[node name="Spark2" type="AnimatedSprite2D" parent="Visuals/Sparks"]
+position = Vector2(-70, -70)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_dtsjf")
+autoplay = "default"
+frame_progress = 0.41265616
+
+[node name="Spark3" type="AnimatedSprite2D" parent="Visuals/Sparks"]
+position = Vector2(-86, -46)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_dtsjf")
+autoplay = "default"
+frame_progress = 0.24542806
+
+[node name="Spark4" type="AnimatedSprite2D" parent="Visuals/Sparks"]
+position = Vector2(-106, -10)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_dtsjf")
+autoplay = "default"
+frame_progress = 0.05486346
+
+[node name="PointLight2D" type="PointLight2D" parent="Visuals"]
+position = Vector2(-46, -27)
+scale = Vector2(4.59375, 4.5937495)
+color = Color(1, 0.64705884, 0.050980393, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_j2hfv")
+
+[node name="Hitbox" type="Node2D" parent="."]
+position = Vector2(116, 155)
+
+[node name="Area2D" type="Area2D" parent="Hitbox"]
+script = ExtResource("3_u30ic")
+
+[node name="HBBottom" type="CollisionShape2D" parent="Hitbox/Area2D"]
+position = Vector2(2, 36)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_j2hfv")
+debug_color = Color(8.122064e-08, 0.082261, 0.10362779, 0.41960785)
+
+[node name="HBTop" type="CollisionShape2D" parent="Hitbox/Area2D"]
+position = Vector2(-6, -38)
+shape = SubResource("RectangleShape2D_hresq")
+debug_color = Color(2.4065375e-08, 0.027460862, 0.038860776, 0.41960785)
+
+[connection signal="rock_exploded" from="." to="Hitbox/Area2D" method="_on_exploding_rock_rock_exploded"]

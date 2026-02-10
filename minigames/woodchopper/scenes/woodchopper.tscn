@@ -1,0 +1,369 @@
+[gd_scene load_steps=17 format=3 uid="uid://cosjlpcbr62rr"]
+
+[ext_resource type="Script" uid="uid://c6oxsclmc0224" path="res://minigames/woodchopper/scripts/playerwood.gd" id="1_84oo1"]
+[ext_resource type="Script" uid="uid://1qsdv5rn8y1f" path="res://minigames/woodchopper/scripts/woodchopper.gd" id="1_tyyj5"]
+[ext_resource type="Script" uid="uid://dkuh2n5dnn3wj" path="res://minigames/woodchopper/scripts/tree.gd" id="3_sv15j"]
+[ext_resource type="PackedScene" uid="uid://oh48t145y0cc" path="res://minigames/woodchopper/scenes/tree_segment.tscn" id="4_y8528"]
+[ext_resource type="Texture2D" uid="uid://bh7426xrkbi4g" path="res://minigames/woodchopper/sprites/grass_and_dirt_bg1.png" id="5_erjnm"]
+[ext_resource type="Texture2D" uid="uid://b6ahl4ucfxftt" path="res://minigames/woodchopper/sprites/roots_foreground1.png" id="6_fl47g"]
+[ext_resource type="Texture2D" uid="uid://c50o357kni43h" path="res://minigames/woodchopper/sprites/forest_bg1.png" id="6_gy6x0"]
+[ext_resource type="FontFile" uid="uid://d4ljtp4y5dvxt" path="res://minigames/woodchopper/fonts/Silkscreen-Regular.ttf" id="9_71l07"]
+[ext_resource type="Texture2D" uid="uid://b7krdrhxesw6q" path="res://minigames/woodchopper/sprites/player_animation.png" id="9_fl47g"]
+[ext_resource type="Texture2D" uid="uid://bw1mtw17kw55h" path="res://minigames/woodchopper/sprites/clock_icon.png" id="10_1xtpx"]
+[ext_resource type="Texture2D" uid="uid://dwjfkvna7ku0i" path="res://assets/art/Pixel Art Icon Pack - RPG/Material/Wood Log.png" id="11_8y6rm"]
+
+[sub_resource type="Animation" id="Animation_fl47g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-180, 214)]
+}
+
+[sub_resource type="Animation" id="Animation_i5la1"]
+resource_name = "hit_tree"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.03),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-180, 214), Vector2(-180, 214), Vector2(-120, 214)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.03),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_send_hit_signal"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_71l07"]
+resource_name = "move_limit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-180, 214), Vector2(-195, 214), Vector2(-180, 214)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_erjnm"]
+resource_name = "return_to_idle"
+length = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(2, 0), Vector2i(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-120, 214), Vector2(-180, 214)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5la1"]
+_data = {
+&"RESET": SubResource("Animation_fl47g"),
+&"hit_tree": SubResource("Animation_i5la1"),
+&"move_limit": SubResource("Animation_71l07"),
+&"return_to_idle": SubResource("Animation_erjnm")
+}
+
+[node name="Woodchopper" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+script = ExtResource("1_tyyj5")
+
+[node name="WoodChopper" type="Node2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Sky" type="ColorRect" parent="Background"]
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.30588284, 0.5746597, 0.76039535, 1)
+
+[node name="Forest" type="Sprite2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("6_gy6x0")
+
+[node name="Tree" type="Node2D" parent="." node_paths=PackedStringArray("first_segment")]
+position = Vector2(640, 360)
+script = ExtResource("3_sv15j")
+tree_segment = ExtResource("4_y8528")
+first_segment = NodePath("TreeSegment")
+
+[node name="TreeSegment" parent="Tree" instance=ExtResource("4_y8528")]
+position = Vector2(0, 150)
+
+[node name="Foreground" type="Node2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Roots" type="Sprite2D" parent="Foreground"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("6_fl47g")
+
+[node name="Ground" type="Sprite2D" parent="Foreground"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("5_erjnm")
+
+[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("tree")]
+texture_filter = 1
+position = Vector2(640, 360)
+script = ExtResource("1_84oo1")
+tree = NodePath("../Tree")
+
+[node name="Visuals" type="Node2D" parent="Player"]
+position = Vector2(-180, 214)
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player/Visuals"]
+texture_filter = 1
+scale = Vector2(4.4, 4.4)
+texture = ExtResource("9_fl47g")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Visuals"]
+libraries = {
+&"": SubResource("AnimationLibrary_i5la1")
+}
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 3
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 158.0
+offset_top = 631.0
+offset_right = 631.0
+offset_bottom = 708.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("9_71l07")
+theme_override_font_sizes/font_size = 52
+text = "TIMER"
+
+[node name="ClockIcon" type="Node2D" parent="."]
+position = Vector2(110, 668)
+scale = Vector2(0.27, 0.27)
+
+[node name="Sprite2D" type="Sprite2D" parent="ClockIcon"]
+texture = ExtResource("10_1xtpx")
+
+[node name="WoodCounter" type="Label" parent="."]
+offset_left = 1071.0
+offset_top = 28.0
+offset_right = 1265.0
+offset_bottom = 119.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("9_71l07")
+theme_override_font_sizes/font_size = 70
+text = "0"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="WoodIcon" type="Node2D" parent="."]
+position = Vector2(1010, 80)
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="WoodIcon"]
+position = Vector2(580, -3.9999998)
+scale = Vector2(8, 8)
+texture = ExtResource("11_8y6rm")
+
+[node name="GameOverScreen" type="Node2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+offset_left = -620.0
+offset_top = -337.0
+offset_right = 626.0
+offset_bottom = 336.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.33333334)
+
+[node name="GameOverLabel" type="Label" parent="GameOverScreen"]
+offset_left = -626.0
+offset_top = -161.0
+offset_right = 627.0
+offset_bottom = -84.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("9_71l07")
+theme_override_font_sizes/font_size = 52
+text = "Fin de la recoleccion"
+horizontal_alignment = 1
+
+[node name="PlayAgain" type="Button" parent="GameOverScreen"]
+visible = false
+offset_left = -106.0
+offset_top = -24.0
+offset_right = 112.0
+offset_bottom = 23.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_71l07")
+theme_override_font_sizes/font_size = 30
+text = "PLAY AGAIN"
+
+[node name="Return" type="Button" parent="GameOverScreen"]
+offset_left = -108.0
+offset_top = -29.0
+offset_right = 110.0
+offset_bottom = 18.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("9_71l07")
+theme_override_font_sizes/font_size = 30
+text = "VOLVER
+"
+
+[connection signal="tree_anim_finished" from="Tree" to="Player" method="_on_tree_tree_anim_finished"]
+[connection signal="axe_swung" from="Player" to="Tree" method="_on_player_axe_swung"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="GameOverScreen/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="GameOverScreen/Return" to="." method="_on_return_pressed"]

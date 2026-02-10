@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj66x77xmdgyd"]
+
+[ext_resource type="Script" uid="uid://bq6rehv2e3nua" path="res://scripts/units/player.gd" id="1_esfxm"]
+[ext_resource type="Texture2D" uid="uid://dhew5guo7xbul" path="res://icon.svg" id="2_15tbu"]
+[ext_resource type="PackedScene" uid="uid://dpd4jx3yg16dt" path="res://scenes/projectile.tscn" id="2_55td2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55td2"]
+radius = 19.026299
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_esfxm")
+projectile_scene = ExtResource("2_55td2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.29882815, 0.3046875)
+texture = ExtResource("2_15tbu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_55td2")
+
+[node name="Muzzle" type="Marker2D" parent="."]

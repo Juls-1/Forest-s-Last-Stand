@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://bchgmjyglkblk"]
+
+[ext_resource type="Script" uid="uid://p5m0vk61nvui" path="res://minigames/whack-a-stone/scripts/hole.gd" id="1_a2ebe"]
+[ext_resource type="Texture2D" uid="uid://qn2yfqwyvmdt" path="res://minigames/whack-a-stone/sprites/hole_back.png" id="1_iyxdx"]
+[ext_resource type="Texture2D" uid="uid://dbr6tb28ljijb" path="res://minigames/whack-a-stone/sprites/hole_front.png" id="2_a2ebe"]
+[ext_resource type="PackedScene" uid="uid://bdvlwilicnskj" path="res://minigames/whack-a-stone/scenes/fast_rock.tscn" id="3_j65mp"]
+[ext_resource type="PackedScene" uid="uid://c1hhfnwkrf1ih" path="res://minigames/whack-a-stone/scenes/slow_rock.tscn" id="3_spnof"]
+[ext_resource type="PackedScene" uid="uid://jbhd7dss4ja8" path="res://minigames/whack-a-stone/scenes/exploding_rock.tscn" id="4_l47fx"]
+[ext_resource type="Texture2D" uid="uid://bofflg0qb188" path="res://minigames/whack-a-stone/sprites/rock_explosion_particles.png" id="7_7mnko"]
+[ext_resource type="AudioStream" uid="uid://bafecjkxkaqke" path="res://minigames/whack-a-stone/sfx/rock_breaking.mp3" id="7_l47fx"]
+[ext_resource type="AudioStream" uid="uid://crqvxox8gn3bj" path="res://minigames/whack-a-stone/sfx/mining_stone.wav" id="8_45un5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4h1ce"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 3
+particles_anim_loop = false
+
+[node name="Hole" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_a2ebe")
+rocks = Array[PackedScene]([ExtResource("3_spnof"), ExtResource("3_j65mp"), ExtResource("4_l47fx")])
+
+[node name="Back" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_iyxdx")
+
+[node name="Spawner" type="ColorRect" parent="."]
+clip_children = 1
+offset_left = -124.0
+offset_top = -177.0
+offset_right = 124.0
+offset_bottom = 34.0
+mouse_filter = 2
+
+[node name="Front" type="Sprite2D" parent="."]
+position = Vector2(0, 34)
+scale = Vector2(4, 4)
+texture = ExtResource("2_a2ebe")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Front"]
+material = SubResource("CanvasItemMaterial_4h1ce")
+position = Vector2(0, -8.5)
+emitting = false
+amount = 12
+texture = ExtResource("7_7mnko")
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.7
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 80.0
+angular_velocity_min = 30.0
+angular_velocity_max = 50.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+anim_offset_max = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="BreakRocks" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_l47fx")
+volume_db = -8.0
+
+[node name="TouchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_45un5")
+volume_db = -5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

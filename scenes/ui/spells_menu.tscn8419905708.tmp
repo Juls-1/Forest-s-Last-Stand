@@ -1,0 +1,195 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpee1326je0my"]
+
+[ext_resource type="Script" uid="uid://dxit5mwqtj0xk" path="res://scripts/ui/spells_menu.gd" id="0_spells"]
+[ext_resource type="Texture2D" uid="uid://b7f6vli2im1u5" path="res://assets/art/spells/icons/HealIcon.jpg" id="1_0ep42"]
+[ext_resource type="Texture2D" uid="uid://bgfogpjxr300g" path="res://assets/art/spells/icons/ShieldIcon.jpg" id="2_fmkdu"]
+[ext_resource type="FontFile" uid="uid://cofv808qgpv2h" path="res://assets/fonts/Silkscreen-Regular.ttf" id="3_6uwee"]
+[ext_resource type="Texture2D" uid="uid://clkkmfmv5t3qf" path="res://assets/art/spells/icons/SlowIcon.jpg" id="3_58eok"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uwee"]
+bg_color = Color(0.2823947, 0.30766153, 0.18431085, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5176471, 0.5568628, 0.36862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[node name="SpellsMenu" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("0_spells")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -150.0
+offset_right = 64.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6uwee")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TitleContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Heal" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7764706, 0.63529414, 0.101960786, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Curacion"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Heal2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7764706, 0.63529414, 0.101960786, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Escudo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slow" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7746687, 0.6364397, 0.1005973, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Frenar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buff" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7746687, 0.6364397, 0.1005973, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Celeridad"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HealContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Cura a una unidad amiga."
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/HealContainer"]
+layout_mode = 2
+
+[node name="HealButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/HealContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/icon_disabled_color = Color(0.47058824, 0.47058824, 0.47058824, 0.4862745)
+icon = ExtResource("1_0ep42")
+icon_alignment = 1
+
+[node name="HealCooldown" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/HealContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+theme_override_fonts/font = ExtResource("3_6uwee")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShieldContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Proporciona barrera contra el daño para una unidad amiga."
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/ShieldContainer"]
+layout_mode = 2
+
+[node name="ShieldButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/ShieldContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/icon_disabled_color = Color(0.47058824, 0.47058824, 0.47058824, 0.4862745)
+icon = ExtResource("2_fmkdu")
+icon_alignment = 1
+
+[node name="ShieldCooldown" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/ShieldContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+theme_override_fonts/font = ExtResource("3_6uwee")
+theme_override_font_sizes/font_size = 15
+
+[node name="SlowContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Area que realentiza enemigos."
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/SlowContainer"]
+layout_mode = 2
+
+[node name="SlowButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/SlowContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/icon_disabled_color = Color(0.47058824, 0.47058824, 0.47058824, 0.4862745)
+icon = ExtResource("3_58eok")
+icon_alignment = 1
+
+[node name="SlowCooldwon" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/SlowContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68235296, 0.68235296, 0.68235296, 1)
+theme_override_fonts/font = ExtResource("3_6uwee")
+theme_override_font_sizes/font_size = 15
+
+[node name="BuffContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Mejora la velocidad de ataque de una unidad aliada."
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/BuffContainer"]
+layout_mode = 2
+
+[node name="BuffButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/BuffContainer/PanelContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/icon_disabled_color = Color(0.47058824, 0.47058824, 0.47058824, 0.4862745)
+icon_alignment = 1
+
+[node name="BuffCooldown" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonContainer/BuffContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+theme_override_fonts/font = ExtResource("3_6uwee")
+theme_override_font_sizes/font_size = 15

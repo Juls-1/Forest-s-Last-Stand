@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5vqm8xwxqr"]
+
+[ext_resource type="Script" uid="uid://xecpan8bq0xo" path="res://scripts/enemies/spawn_point.gd" id="1_spawn"]
+[ext_resource type="Script" path="res://scripts/components/sound_component.gd" id="SoundComp_SCRIPT"]
+
+[node name="SpawnPoint" type="Node2D" groups=["spawn_points"]]
+script = ExtResource("1_spawn")
+
+[node name="Marker" type="Marker2D" parent="."]
+
+[node name="DebugCircle" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0, 0, 0.3)
+polygon = PackedVector2Array(50, 0, 47.55, 15.45, 40.45, 29.39, 29.39, 40.45, 15.45, 47.55, 0, 50, -15.45, 47.55, -29.39, 40.45, -40.45, 29.39, -47.55, 15.45, -50, 0, -47.55, -15.45, -40.45, -29.39, -29.39, -40.45, -15.45, -47.55, 0, -50, 15.45, -47.55, 29.39, -40.45, 40.45, -29.39, 47.55, -15.45)
+
+[node name="SoundComponent" type="Node2D" parent="."]
+script = ExtResource("SoundComp_SCRIPT")

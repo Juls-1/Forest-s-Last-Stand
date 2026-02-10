@@ -1,0 +1,468 @@
+[gd_scene load_steps=34 format=3 uid="uid://mdyxw4i53ahq"]
+
+[ext_resource type="Script" uid="uid://do6tey7x44gjf" path="res://minigames/blacksmith/scripts/beat_forge.gd" id="1_xwgc8"]
+[ext_resource type="Texture2D" uid="uid://cbiee2hoy3io" path="res://minigames/blacksmith/sprites/forge_bg.png" id="2_6d80v"]
+[ext_resource type="PackedScene" path="res://minigames/blacksmith/scenes/visual_target.tscn" id="2_c7p1g"]
+[ext_resource type="Script" uid="uid://vibvs5youif5" path="res://minigames/blacksmith/scripts/song_importer.gd" id="2_ggl6f"]
+[ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="3_1gou3"]
+[ext_resource type="Script" uid="uid://wncyyxgvmv1i" path="res://minigames/blacksmith/scripts/hammer.gd" id="3_8vckl"]
+[ext_resource type="Texture2D" uid="uid://b1f7guysyc6p4" path="res://minigames/blacksmith/sprites/hammer.png" id="4_ggl6f"]
+[ext_resource type="AudioStream" uid="uid://b6whstt1wqojr" path="res://minigames/blacksmith/music/song_01-135bpm.wav" id="4_xwgc8"]
+[ext_resource type="Texture2D" uid="uid://dssoqi6t56cvx" path="res://minigames/blacksmith/sprites/hammer_normal_map.png" id="5_xwgc8"]
+[ext_resource type="AudioStream" uid="uid://dlvv5t4xqj76o" path="res://minigames/blacksmith/sfx/hit.wav" id="6_8vckl"]
+[ext_resource type="Texture2D" uid="uid://ct1utql1tedjo" path="res://minigames/blacksmith/sprites/Anvil.png" id="6_c7p1g"]
+[ext_resource type="AudioStream" uid="uid://dtguw8le0txdc" path="res://minigames/blacksmith/sfx/pipe_drop.wav" id="6_i28h8"]
+[ext_resource type="Script" uid="uid://deb8gxybnflo1" path="res://minigames/blacksmith/scripts/sfx_player.gd" id="7_lfxy0"]
+[ext_resource type="Script" uid="uid://47wkj4eyb207" path="res://minigames/blacksmith/scripts/anvil.gd" id="9_i28h8"]
+[ext_resource type="Texture2D" uid="uid://ba632fnro7j6f" path="res://minigames/blacksmith/sprites/explosion.png" id="14_1gou3"]
+[ext_resource type="Script" uid="uid://cctycnnnh28en" path="res://minigames/blacksmith/scripts/score_bar.gd" id="14_i28h8"]
+[ext_resource type="FontFile" uid="uid://fcn6tv4ivlog" path="res://minigames/blacksmith/fonts/Minecraft.ttf" id="16_akosd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i28h8"]
+atlas = ExtResource("14_1gou3")
+region = Rect2(0, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akosd"]
+atlas = ExtResource("14_1gou3")
+region = Rect2(19, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfxy0"]
+atlas = ExtResource("14_1gou3")
+region = Rect2(38, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xubs"]
+atlas = ExtResource("14_1gou3")
+region = Rect2(57, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw4ya"]
+atlas = ExtResource("14_1gou3")
+region = Rect2(76, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1uxp"]
+atlas = ExtResource("14_1gou3")
+region = Rect2(95, 0, 19, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mew1w"]
+atlas = ExtResource("14_1gou3")
+region = Rect2(114, 0, 19, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0das0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i28h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akosd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfxy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xubs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw4ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1uxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mew1w")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="Animation" id="Animation_t56mv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5707963267948966]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(75, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HammerSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_nil5l"]
+resource_name = "hit"
+length = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HammerSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8vckl"]
+resource_name = "release"
+length = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5707963267948966]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(75, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g1fya"]
+resource_name = "start_positioning"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334, 1.7333333, 2.1666667, 2.6),
+"transitions": PackedFloat32Array(2, -2, 1, -2, 1),
+"update": 0,
+"values": [-0.08726646259971647, 1.832595714594046, 1.4835298641951802, 1.6231562043547263, 1.5707963267948966]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.7333333, 2.3),
+"transitions": PackedFloat32Array(1, -2, 0.5, 1),
+"update": 0,
+"values": [Vector2(-80, 10), Vector2(100, 0), Vector2(72, 0), Vector2(75, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_game"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_unlock_input"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nil5l"]
+_data = {
+&"RESET": SubResource("Animation_t56mv"),
+&"hit": SubResource("Animation_nil5l"),
+&"release": SubResource("Animation_8vckl"),
+&"start_positioning": SubResource("Animation_g1fya")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2e507"]
+diffuse_texture = ExtResource("4_ggl6f")
+normal_texture = ExtResource("5_xwgc8")
+texture_filter = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7p1g"]
+bg_color = Color(0.28485027, 0.28485027, 0.2848502, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gou3"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="BeatForge" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+offset = Vector2(640, 360)
+transform = Transform2D(1, 0, 0, 1, 640, 360)
+script = ExtResource("1_xwgc8")
+visual_target = ExtResource("2_c7p1g")
+
+[node name="RhythmNotifier" type="Node" parent="." node_paths=PackedStringArray("audio_stream_player")]
+script = ExtResource("3_1gou3")
+audio_stream_player = NodePath("../SongPlayer")
+metadata/_custom_type_script = "uid://dos3qhffr4v0a"
+
+[node name="SongImporter" type="Node" parent="."]
+script = ExtResource("2_ggl6f")
+
+[node name="SongPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xwgc8")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_i28h8")
+volume_db = -10.0
+script = ExtResource("7_lfxy0")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_6d80v")
+
+[node name="TargetSpawner" type="Node2D" parent="."]
+position = Vector2(368, 0)
+
+[node name="Anvil" type="Node2D" parent="."]
+position = Vector2(390, 110)
+script = ExtResource("9_i28h8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Anvil"]
+texture_filter = 1
+scale = Vector2(5.5, 5.5)
+texture = ExtResource("6_c7p1g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Anvil"]
+texture_filter = 1
+position = Vector2(-24, -101)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_0das0")
+frame = 6
+frame_progress = 1.0
+
+[node name="Hammer" type="Node2D" parent="."]
+position = Vector2(475, -60)
+script = ExtResource("3_8vckl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hammer"]
+libraries = {
+&"": SubResource("AnimationLibrary_nil5l")
+}
+autoplay = "start_positioning"
+
+[node name="HammerSound" type="AudioStreamPlayer" parent="Hammer"]
+stream = ExtResource("6_8vckl")
+volume_db = -2.0
+
+[node name="Visuals" type="Node2D" parent="Hammer"]
+position = Vector2(75, 0)
+rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="Hammer/Visuals"]
+texture_filter = 1
+position = Vector2(90, 6)
+scale = Vector2(5, 5)
+texture = SubResource("CanvasTexture_2e507")
+offset = Vector2(-22.5, -1.5)
+
+[node name="ScoreTracker" type="PanelContainer" parent="."]
+offset_left = -275.0
+offset_top = -320.0
+offset_right = 275.0
+offset_bottom = -270.0
+pivot_offset = Vector2(275, 25)
+theme_override_styles/panel = SubResource("StyleBoxFlat_c7p1g")
+script = ExtResource("14_i28h8")
+
+[node name="ColorPanel" type="Panel" parent="ScoreTracker"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1gou3")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScoreTracker"]
+layout_mode = 2
+
+[node name="ScoreText" type="Label" parent="ScoreTracker/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GameOverScreen" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+offset_left = -605.0
+offset_top = -341.0
+offset_right = 605.0
+offset_bottom = 336.0
+color = Color(0, 0, 0, 0.22745098)
+
+[node name="GameOverLabel" type="Label" parent="GameOverScreen"]
+offset_left = -215.0
+offset_top = -229.0
+offset_right = 237.0
+offset_bottom = -165.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("16_akosd")
+theme_override_font_sizes/font_size = 64
+text = "FIN DE FORJA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YourScore" type="Label" parent="GameOverScreen"]
+offset_left = -184.0
+offset_top = -132.0
+offset_right = 204.0
+offset_bottom = -68.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("16_akosd")
+theme_override_font_sizes/font_size = 32
+text = "PUNTUACION: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="GameOverScreen"]
+offset_left = -191.0
+offset_top = -71.0
+offset_right = 197.0
+offset_bottom = -7.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("16_akosd")
+theme_override_font_sizes/font_size = 64
+text = "0/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="GameOverScreen"]
+visible = false
+offset_left = -197.0
+offset_top = 34.0
+offset_right = 191.0
+offset_bottom = 98.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("16_akosd")
+theme_override_font_sizes/font_size = 64
+text = "Fallaste"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GameOverScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = 135.0
+offset_right = 121.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("16_akosd")
+theme_override_font_sizes/font_size = 32
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverScreen/Button"]
+layout_mode = 0
+offset_right = 238.0
+offset_bottom = 52.0
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="GameOverScreen/Button/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("16_akosd")
+theme_override_font_sizes/font_size = 32
+text = "VOLVER"
+horizontal_alignment = 1
+vertical_alignment = 1

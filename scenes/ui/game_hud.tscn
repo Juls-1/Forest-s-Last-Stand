@@ -1,0 +1,219 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8y3vqm5xwxqr"]
+
+[ext_resource type="Script" uid="uid://d1er3td8c6cqb" path="res://scripts/ui/game_hud.gd" id="1_hud"]
+[ext_resource type="PackedScene" uid="uid://dus176dnw0oep" path="res://scenes/ui/placement_menu.tscn" id="2_fnxle"]
+[ext_resource type="Texture2D" uid="uid://cigis05jywr4n" path="res://assets/art/Pixel Art Icon Pack - RPG/SunIcon3-removebg-preview.png" id="3_ehshv"]
+[ext_resource type="Texture2D" uid="uid://3xxli5os3udi" path="res://assets/art/Pixel Art Icon Pack - RPG/Misc/Golden Coin.png" id="3_el006"]
+[ext_resource type="Texture2D" uid="uid://dwjfkvna7ku0i" path="res://assets/art/Pixel Art Icon Pack - RPG/Material/Wood Log.png" id="4_n5j44"]
+[ext_resource type="Texture2D" uid="uid://ckltr171ok6bd" path="res://assets/art/Pixel Art Icon Pack - RPG/rock.png" id="6_4qk33"]
+[ext_resource type="Texture2D" uid="uid://jnyajb45cht4" path="res://assets/art/Pixel Art Icon Pack - RPG/Misc/Heart.png" id="6_ehshv"]
+[ext_resource type="Texture2D" uid="uid://rextstxs5r2j" path="res://assets/art/Pixel Art Icon Pack - RPG/Monster Part/Skull.png" id="7_4qk33"]
+[ext_resource type="PackedScene" uid="uid://cpee1326je0my" path="res://scenes/ui/spells_menu.tscn" id="9_ehshv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n052"]
+bg_color = Color(0.28235295, 0.30588236, 0.18431373, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5176471, 0.5568628, 0.36862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 10
+
+[node name="GameHUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="SuccessMessage" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 48
+text = "DEFENSA EXITOSA!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnitsMenu" parent="." instance=ExtResource("2_fnxle")]
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="DayHud" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0.5882353)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -133.0
+offset_top = 25.999998
+offset_right = 275.0
+offset_bottom = 101.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_8n052")
+
+[node name="MarginContainer" type="MarginContainer" parent="DayHud"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DayHud/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Day" type="HBoxContainer" parent="DayHud/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Día actual"
+
+[node name="TextureRect" type="TextureRect" parent="DayHud/MarginContainer/HBoxContainer/Day"]
+layout_mode = 2
+texture = ExtResource("3_ehshv")
+expand_mode = 3
+
+[node name="DayLabel" type="Label" parent="DayHud/MarginContainer/HBoxContainer/Day"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[node name="Gold" type="HBoxContainer" parent="DayHud/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Oro
+"
+
+[node name="TextureRect" type="TextureRect" parent="DayHud/MarginContainer/HBoxContainer/Gold"]
+layout_mode = 2
+texture = ExtResource("3_el006")
+
+[node name="GoldLabel" type="Label" parent="DayHud/MarginContainer/HBoxContainer/Gold"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 0.85, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "100"
+
+[node name="Wood" type="HBoxContainer" parent="DayHud/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Madera"
+
+[node name="WoodIcon" type="TextureRect" parent="DayHud/MarginContainer/HBoxContainer/Wood"]
+layout_mode = 2
+texture = ExtResource("4_n5j44")
+
+[node name="WoodLabel" type="Label" parent="DayHud/MarginContainer/HBoxContainer/Wood"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0.65, 0.4, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "50"
+
+[node name="Stone" type="HBoxContainer" parent="DayHud/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Piedra"
+
+[node name="StoneIcon" type="TextureRect" parent="DayHud/MarginContainer/HBoxContainer/Stone"]
+layout_mode = 2
+texture = ExtResource("6_4qk33")
+expand_mode = 2
+
+[node name="StoneLabel" type="Label" parent="DayHud/MarginContainer/HBoxContainer/Stone"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "30"
+
+[node name="NightHud" type="PanelContainer" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.5882353)
+offset_left = 559.0
+offset_top = 26.0
+offset_right = 859.0
+offset_bottom = 101.0
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_8n052")
+
+[node name="MarginContainer" type="MarginContainer" parent="NightHud"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NightHud/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Lifes" type="HBoxContainer" parent="NightHud/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Vidas restantes"
+
+[node name="LifeIcon" type="TextureRect" parent="NightHud/MarginContainer/HBoxContainer/Lifes"]
+layout_mode = 2
+texture = ExtResource("6_ehshv")
+
+[node name="EnemiesReachedLabel" type="Label" parent="NightHud/MarginContainer/HBoxContainer/Lifes"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "0/3"
+
+[node name="Enemies" type="HBoxContainer" parent="NightHud/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Enemigos restantes"
+
+[node name="EnemiesIcon" type="TextureRect" parent="NightHud/MarginContainer/HBoxContainer/Enemies"]
+layout_mode = 2
+texture = ExtResource("7_4qk33")
+
+[node name="RemainingEnemiesLabel" type="Label" parent="NightHud/MarginContainer/HBoxContainer/Enemies"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.6077316, 0.5821637, 0.53981405, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="SpellsMenu" parent="." instance=ExtResource("9_ehshv")]
+visible = false

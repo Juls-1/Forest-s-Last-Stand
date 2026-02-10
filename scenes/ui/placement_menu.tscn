@@ -1,0 +1,496 @@
+[gd_scene load_steps=10 format=3 uid="uid://dus176dnw0oep"]
+
+[ext_resource type="Texture2D" uid="uid://bm0ecfgf2vxcn" path="res://assets/art/characters/SoldierIcon.png" id="1_hxdw4"]
+[ext_resource type="Texture2D" uid="uid://ctgcac61gmfxy" path="res://assets/art/characters/ArcherIcon.png" id="2_2b3x6"]
+[ext_resource type="Texture2D" uid="uid://3xxli5os3udi" path="res://assets/art/Pixel Art Icon Pack - RPG/Misc/Golden Coin.png" id="2_cyle3"]
+[ext_resource type="Texture2D" uid="uid://dn7n3o4adfdkx" path="res://minigames/whack-a-stone/sprites/rock.png" id="4_i0hgl"]
+[ext_resource type="Texture2D" uid="uid://cnqmoa5dnrq60" path="res://assets/art/characters/VeteranSoldierIcon.png" id="4_qvwgg"]
+[ext_resource type="Texture2D" uid="uid://deo60ijruuhsf" path="res://assets/art/characters/VeteranArcherIcon.png" id="5_efu2w"]
+[ext_resource type="Script" uid="uid://dnsvrt65nhb08" path="res://scripts/ui/placement_menu.gd" id="6_abcde"]
+[ext_resource type="Texture2D" uid="uid://dwjfkvna7ku0i" path="res://assets/art/Pixel Art Icon Pack - RPG/Material/Wood Log.png" id="6_xcuc3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxdw4"]
+bg_color = Color(0.2823947, 0.30766153, 0.18431085, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.5176471, 0.5568628, 0.36862746, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[node name="placement_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("6_abcde")
+
+[node name="MenuInicial" type="PanelContainer" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -150.0
+offset_right = 44.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_hxdw4")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuInicial"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuInicial/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Soldier" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7764706, 0.63529414, 0.101960786, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Soldado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Archer" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7746687, 0.6364397, 0.1005973, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Arquero"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SoldierContainer" type="VBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="SoldierButton" type="Button" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Unidad melee.
+Atrae la atención enemiga."
+icon = ExtResource("1_hxdw4")
+icon_alignment = 1
+
+[node name="ResourceCost" type="VBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer"]
+layout_mode = 2
+theme_override_constants/separation = -8
+
+[node name="SoldierGoldInfo" type="HBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer/ResourceCost/SoldierGoldInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer/ResourceCost/SoldierGoldInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_cyle3")
+
+[node name="GoldCost" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer/ResourceCost/SoldierGoldInfo"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "15"
+
+[node name="SoldierStoneInfo" type="HBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer/ResourceCost/SoldierStoneInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer/ResourceCost/SoldierStoneInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("4_i0hgl")
+
+[node name="GoldCost" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/SoldierContainer/ResourceCost/SoldierStoneInfo"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = " 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArcherContainer" type="VBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ArcherButton" type="Button" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Unidad de Rango."
+icon = ExtResource("2_2b3x6")
+icon_alignment = 1
+
+[node name="ResourceCost" type="VBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer"]
+layout_mode = 2
+theme_override_constants/separation = -8
+
+[node name="ArcherGoldInfo" type="HBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer/ResourceCost/ArcherGoldInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer/ResourceCost/ArcherGoldInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_cyle3")
+
+[node name="GoldCost" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer/ResourceCost/ArcherGoldInfo"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "25"
+
+[node name="ArcherWoodInfo" type="HBoxContainer" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer/ResourceCost"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Spacer" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer/ResourceCost/ArcherWoodInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer/ResourceCost/ArcherWoodInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_xcuc3")
+
+[node name="GoldCost" type="Label" parent="MenuInicial/MarginContainer/VBoxContainer/HBoxContainer2/ArcherContainer/ResourceCost/ArcherWoodInfo"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "10"
+
+[node name="MenuMejorado" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -160.0
+offset_right = 84.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_hxdw4")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuMejorado"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuMejorado/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleContainer" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Soldier" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7764706, 0.63529414, 0.101960786, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Soldado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Archer" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7746687, 0.6364397, 0.1005973, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Arquero"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VeteranSoldier" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7764706, 0.63529414, 0.101960786, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -4
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Soldado
+Veterano"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VeteranArcher" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.7746687, 0.6364397, 0.1005973, 1)
+theme_override_constants/line_spacing = -4
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 8
+text = "Arquero
+Veterano"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnitContainer" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SoldierContainer" type="VBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="SoldierButton" type="Button" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Unidad melee.
+Atrae la atención enemiga."
+icon = ExtResource("1_hxdw4")
+icon_alignment = 1
+
+[node name="ResourceCost" type="VBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer"]
+layout_mode = 2
+theme_override_constants/separation = -8
+
+[node name="SoldierGoldInfo" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer/ResourceCost/SoldierGoldInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer/ResourceCost/SoldierGoldInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_cyle3")
+
+[node name="GoldCost" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer/ResourceCost/SoldierGoldInfo"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "15"
+
+[node name="SoldierStoneInfo" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer/ResourceCost/SoldierStoneInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer/ResourceCost/SoldierStoneInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("4_i0hgl")
+
+[node name="GoldCost" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/SoldierContainer/ResourceCost/SoldierStoneInfo"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = " 5"
+
+[node name="ArcherContainer" type="VBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ArcherButton" type="Button" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Unidad de Rango."
+icon = ExtResource("2_2b3x6")
+icon_alignment = 1
+
+[node name="ResourceCost" type="VBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer"]
+layout_mode = 2
+theme_override_constants/separation = -8
+
+[node name="ArcherGoldInfo" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer/ResourceCost/ArcherGoldInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer/ResourceCost/ArcherGoldInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_cyle3")
+
+[node name="GoldCost" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer/ResourceCost/ArcherGoldInfo"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "25"
+
+[node name="ArcherWoodInfo" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer/ResourceCost/ArcherWoodInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer/ResourceCost/ArcherWoodInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_xcuc3")
+
+[node name="GoldCost" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/ArcherContainer/ResourceCost/ArcherWoodInfo"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "25"
+
+[node name="VeteranSoldierContainer" type="VBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="VeteranSoldierButton" type="Button" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Unidad melee.
+Soldado curtido."
+icon = ExtResource("4_qvwgg")
+icon_alignment = 1
+
+[node name="ResourceCost" type="VBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer"]
+layout_mode = 2
+theme_override_constants/separation = -8
+
+[node name="VeteranSoldierGoldInfo" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer/ResourceCost/VeteranSoldierGoldInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer/ResourceCost/VeteranSoldierGoldInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_cyle3")
+
+[node name="GoldCost" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer/ResourceCost/VeteranSoldierGoldInfo"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "50"
+
+[node name="VeteranSoldierStoneInfo" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer/ResourceCost/VeteranSoldierStoneInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer/ResourceCost/VeteranSoldierStoneInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("4_i0hgl")
+
+[node name="GoldCost" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranSoldierContainer/ResourceCost/VeteranSoldierStoneInfo"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "15"
+
+[node name="VeteranArcherContainer" type="VBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="VeteranArcherButton" type="Button" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Unidad de Rango.
+Soldado curtido."
+icon = ExtResource("5_efu2w")
+icon_alignment = 1
+
+[node name="ResourceCost" type="VBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer"]
+layout_mode = 2
+theme_override_constants/separation = -8
+
+[node name="VeteranArcherGoldInfo" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer/ResourceCost/VeteranArcherGoldInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer/ResourceCost/VeteranArcherGoldInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_cyle3")
+
+[node name="GoldCost" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer/ResourceCost/VeteranArcherGoldInfo"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "70"
+
+[node name="VeteranArcherWoodInfo" type="HBoxContainer" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer/ResourceCost"]
+layout_mode = 2
+
+[node name="Spacer" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer/ResourceCost/VeteranArcherWoodInfo"]
+layout_mode = 2
+text = "      "
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer/ResourceCost/VeteranArcherWoodInfo"]
+position = Vector2(15, 10)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_xcuc3")
+
+[node name="GoldCost" type="Label" parent="MenuMejorado/MarginContainer/VBoxContainer/UnitContainer/VeteranArcherContainer/ResourceCost/VeteranArcherWoodInfo"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 8
+text = "20"
