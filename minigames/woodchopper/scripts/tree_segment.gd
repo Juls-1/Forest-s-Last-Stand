@@ -20,7 +20,7 @@ func decrease_hp(n:int):
 	if hp <= 0:
 		play_tree_explode_sound()
 		segment_died.emit()
-		_update_breaking_anim()
+	_update_breaking_anim()
 
 func set_branch(b:Branch):
 	branch = b
