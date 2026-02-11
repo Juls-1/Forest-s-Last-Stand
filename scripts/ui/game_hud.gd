@@ -30,17 +30,11 @@ func _ready() -> void:
 		success_message.visible = false
 
 	placement_menu = find_child("UnitsMenu", false, false)
-	if not placement_menu:
-		placement_menu = find_child("PlacementMenu", true, false)
-	if not placement_menu:
-		placement_menu = find_child("placement_menu", true, false)
+
 
 	if not placement_menu:
 		placement_menu = get_tree().root.find_child("UnitsMenu", true, false)
-	if not placement_menu:
-		placement_menu = get_tree().root.find_child("PlacementMenu", true, false)
-	if not placement_menu:
-		placement_menu = get_tree().root.find_child("placement_menu", true, false)
+
 	if placement_menu:
 		archer_button = placement_menu.find_child("ArcherButton", true, false)
 		soldier_button = placement_menu.find_child("SoldierButton", true, false)
