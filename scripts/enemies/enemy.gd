@@ -23,7 +23,7 @@ const DEFAULT_ATTACK_COOLDOWN: float = 0.5
 const REACHED_END_DISTANCE: float = 50.0
 
 @export var max_health: int = 30
-@export var speed: float = 50.0
+@export var speed: float = 500.0
 @export var damage: int = 10
 @export var gold_value: int = 5
 @export var enemy_type: String = "basic"
@@ -140,13 +140,13 @@ func _move_toward_target(current_target: Node2D, delta: float) -> void:
 	movement_component.set_target_position(current_target.global_position)
 	movement_component.move_towards_target(delta)
 
-func _update_animation(current_target: Node2D, distance: float) -> void:
+func _update_animation(current_target: Node2D, _distance: float) -> void:
 	if not animation_component:
 		return
 	var move_dir = velocity.normalized()
 	animation_component.update_animation(move_dir, is_attacking, current_target)
 
-func _check_reached_end(current_target: Node2D, distance: float) -> void:
+func _check_reached_end(_current_target: Node2D, distance: float) -> void:
 	if aggro_component and aggro_component.has_aggro_targets():
 		return
 	if distance < REACHED_END_DISTANCE:
@@ -169,7 +169,7 @@ func _play_death_animation() -> void:
 	if animation_component:
 		await animation_component.play_death()
 
-func _on_attacked(target_node: Node2D) -> void:
+func _on_attacked(_target_node: Node2D) -> void:
 	is_attacking = true
 	attack_animation_timer = DEFAULT_ATTACK_COOLDOWN
 	if sound_component:

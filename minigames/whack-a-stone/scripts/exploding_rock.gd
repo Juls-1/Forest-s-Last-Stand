@@ -53,4 +53,12 @@ func _die() -> void:
 	hole.front.add_child(e)
 	var animator: AnimationPlayer = e.get_node("AnimationPlayer")
 	animator.play("explosion")
+	_play_explosion_sound()
 	super._die()
+
+func _play_explosion_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/lose.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)

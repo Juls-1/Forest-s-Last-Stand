@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://eu05uubcp4af"]
+[gd_scene load_steps=98 format=4 uid="uid://eu05uubcp4af"]
 
 [ext_resource type="Script" uid="uid://b0c1u7dsq5blk" path="res://scripts/game_manager.gd" id="1_ip0dd"]
 [ext_resource type="Texture2D" uid="uid://fiu46nrhdcmj" path="res://assets/art/characters/Environment/survivalgame-terrian-defult.png" id="2_35lbs"]
@@ -29,6 +29,10 @@
 [ext_resource type="Script" uid="uid://cdr6aa0lq0aw4" path="res://scripts/controllers/to_market.gd" id="26_market"]
 [ext_resource type="Script" uid="uid://c5rm8k30snro1" path="res://scripts/controllers/to_blacksmith.gd" id="28_yugjs"]
 [ext_resource type="Script" uid="uid://bpsjadem4r7m8" path="res://scripts/controllers/to_whack_a_stone.gd" id="29_whackstone"]
+[ext_resource type="Texture2D" uid="uid://dot3ijlco8ypf" path="res://assets/art/characters/Human-Soldier-Red.png" id="30_qyvf3"]
+[ext_resource type="Texture2D" uid="uid://dyyktmijfum2b" path="res://assets/art/characters/Human-Worker-Red.png" id="31_r3vyx"]
+[ext_resource type="Texture2D" uid="uid://sbayhhhkxht5" path="res://assets/art/characters/Mage-Cyan.png" id="32_x7ifl"]
+[ext_resource type="Texture2D" uid="uid://duw0me013usir" path="res://assets/art/characters/Human-Worker-Cyan.png" id="33_hng26"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fi7ac"]
 texture = ExtResource("19_ycpv2")
@@ -10094,7 +10098,7 @@ pattern_3 = SubResource("TileMapPattern_fi7ac")
 pattern_4 = SubResource("TileMapPattern_mgvcb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ip0dd"]
-size = Vector2(209, 109)
+size = Vector2(209, 82.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk2m4"]
 size = Vector2(147, 132)
@@ -10113,6 +10117,221 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjjh3"]
 size = Vector2(184, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7ifl"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hng26"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mmfyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7ifl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hng26")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qyvf3"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o5bq"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arfx0"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jg7vi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o5bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arfx0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyvf3"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3vyx"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwv3s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyvf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3vyx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1onll"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acukt"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ln2xk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1onll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acukt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq4ud"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vimct"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ypl0q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq4ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vimct")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmfyj"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg7vi"]
+atlas = ExtResource("30_qyvf3")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1onll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmfyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg7vi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3r8c"]
+atlas = ExtResource("31_r3vyx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v32n0"]
+atlas = ExtResource("31_r3vyx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17huj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3r8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v32n0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwv3s"]
+atlas = ExtResource("32_x7ifl")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln2xk"]
+atlas = ExtResource("32_x7ifl")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rq4ud"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwv3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln2xk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1o5bq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3r8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v32n0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypl0q"]
+atlas = ExtResource("33_hng26")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17huj"]
+atlas = ExtResource("33_hng26")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hxbr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypl0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17huj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="town" type="Node2D"]
 process_mode = 1
@@ -10193,7 +10412,7 @@ position = Vector2(18, -400)
 script = ExtResource("11_5ycnk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="toWorld"]
-position = Vector2(1, 36)
+position = Vector2(1, 49.25)
 shape = SubResource("RectangleShape2D_ip0dd")
 
 [node name="toWoodChopper" type="Area2D" parent="."]
@@ -10377,6 +10596,195 @@ text = "\"E\" para
 Minar"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="Guards" type="Node" parent="NPCs"]
+
+[node name="Guard" type="Node2D" parent="NPCs/Guards"]
+z_index = -1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Guards/Guard"]
+position = Vector2(-32, -456)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_mmfyj")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Guards/Guard"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Guards/Guard/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Guard2" type="Node2D" parent="NPCs/Guards"]
+z_index = -1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Guards/Guard2"]
+position = Vector2(80, -456)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_jg7vi")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Guards/Guard2"]
+position = Vector2(88, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Guards/Guard2/StaticBody2D"]
+position = Vector2(-7, -447)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Guard3" type="Node2D" parent="NPCs/Guards"]
+z_index = -1
+position = Vector2(472, -840)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Guards/Guard3"]
+position = Vector2(-32, -456)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_nwv3s")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Guards/Guard3"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Guards/Guard3/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Guard4" type="Node2D" parent="NPCs/Guards"]
+z_index = -1
+position = Vector2(160, -880)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Guards/Guard4"]
+position = Vector2(-32, -464)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_ln2xk")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Guards/Guard4"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Guards/Guard4/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Guard5" type="Node2D" parent="NPCs/Guards"]
+z_index = -1
+position = Vector2(-536, -640)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Guards/Guard5"]
+position = Vector2(-32, -464)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_ypl0q")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Guards/Guard5"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Guards/Guard5/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Guard6" type="Node2D" parent="NPCs/Guards"]
+z_index = -1
+position = Vector2(64, -832)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Guards/Guard6"]
+position = Vector2(-32, -464)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_ypl0q")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Guards/Guard6"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Guards/Guard6/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Guard7" type="Node2D" parent="NPCs/Guards"]
+z_index = -1
+position = Vector2(184, -488)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Guards/Guard7"]
+position = Vector2(48, -384)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_1onll")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Guards/Guard7"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Guards/Guard7/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Villager" type="Node2D" parent="NPCs"]
+position = Vector2(88, -480)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Villager"]
+z_index = -1
+position = Vector2(624, -248)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_17huj")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Villager"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Villager/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Villager2" type="Node2D" parent="NPCs"]
+position = Vector2(96, -352)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Villager2"]
+z_index = -1
+position = Vector2(584.00006, -248)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_rq4ud")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Villager2"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Villager2/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Villager3" type="Node2D" parent="NPCs"]
+position = Vector2(-648, -824)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Villager3"]
+z_index = -1
+position = Vector2(624, -248)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_1o5bq")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Villager3"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Villager3/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
+
+[node name="Villager4" type="Node2D" parent="NPCs"]
+position = Vector2(-472, -832)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/Villager4"]
+z_index = -1
+position = Vector2(624, -248)
+scale = Vector2(1.15, 1.15)
+sprite_frames = SubResource("SpriteFrames_hxbr7")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NPCs/Villager4"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Villager4/StaticBody2D"]
+position = Vector2(-40, -456)
+shape = SubResource("CircleShape2D_qyvf3")
 
 [connection signal="body_entered" from="toWorld" to="toWorld" method="_on_body_entered"]
 [connection signal="body_exited" from="toWorld" to="toWorld" method="_on_body_exited"]

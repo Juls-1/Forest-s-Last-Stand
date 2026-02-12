@@ -515,10 +515,8 @@ radius = 16.0
 [node name="OrcPeon" type="CharacterBody2D"]
 collision_mask = 2
 script = ExtResource("1_orc")
-max_health = 50
-speed = 60.0
-damage = 15
-gold_value = 10
+max_health = 60
+damage = 100
 metadata/enemy_type = "basic"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -565,7 +563,6 @@ max_health = 30
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("5_d03pg")
-speed = 80.0
 
 [node name="AttackComponent" type="Node" parent="."]
 script = ExtResource("6_rso2t")

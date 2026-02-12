@@ -13,6 +13,17 @@ func _ready() -> void:
 	game_over = false
 	wood_collected = 0
 	game_over_screen.visible = false
+	
+	# Pausar la música de town
+	if SoundManager and SoundManager.current_scene == "town":
+		SoundManager.pause_music()
+	
+	if play_again:
+		play_again.pressed.connect(_on_play_again_pressed)
+		play_again.pressed.connect(_play_click_sound)
+	if go_back:
+		go_back.pressed.connect(_on_return_pressed)
+		go_back.pressed.connect(_play_click_sound)
 
 
 func _process(_delta: float) -> void:
@@ -46,10 +57,16 @@ func _on_return_pressed() -> void:
 		gm.reward_minigame({"gold": 0, "wood": wood_collected, "stone": 0})
 	get_tree().paused = false
 	
-	# Reanudar la música si estamos en town
 	if SoundManager and SoundManager.current_scene == "town":
 		SoundManager.resume_music()
 	
 	queue_free()
 	if SceneTransition:
 		SceneTransition.fade_in(0.3)
+
+func _play_click_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/click.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)

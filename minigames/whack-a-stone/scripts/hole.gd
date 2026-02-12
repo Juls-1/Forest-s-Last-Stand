@@ -43,8 +43,16 @@ func _on_rock_has_died(rock) -> void:
 func _on_rock_exploded(rock) -> void:
 	game.stone_collected -= 1
 	rock.queue_free()
+	_play_explosion_sound()
 	stop_game()
 
 func stop_game() -> void:
 	game_continues = false
 	game.game_over()
+
+func _play_explosion_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/lose.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)

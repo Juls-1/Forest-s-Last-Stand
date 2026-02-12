@@ -16,7 +16,7 @@ var current_wave: int = 0
 var enemies_reached_entrance: int = 0
 var wave_ending: bool = false
 
-var current_location: String = "world"
+var current_location: String = "town"
 var gold: int: get = _get_gold
 var wood: int: get = _get_wood
 var stone: int: get = _get_stone

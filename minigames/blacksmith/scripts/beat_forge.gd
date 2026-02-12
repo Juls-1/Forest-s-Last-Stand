@@ -30,6 +30,10 @@ func _ready() -> void:
 	importer.import_song(TEST_SONG_PATH)
 	rn.bpm = importer.song.bpm
 	
+	# Pausar la música de town
+	if SoundManager and SoundManager.current_scene == "town":
+		SoundManager.pause_music()
+	
 	for t in importer.song.targets:
 		targets.append(t.beat * rn.beat_length)
 	current_target = targets[t_index]
@@ -46,6 +50,7 @@ func _ready() -> void:
 		_show_end_message()
 	)
 	button.pressed.connect(_on_button_pressed)
+	button.pressed.connect(_play_click_sound)
 
 func start_game():
 	rn.audio_stream_player.play()
@@ -95,8 +100,10 @@ func _show_end_message() -> void:
 	message_label.visible = true
 	if score_tracker.score <= int(score_tracker.max_score * 0.75):
 		message_label.text = "Intento fallido"
+		_play_lose_sound()
 	else:
 		message_label.text = "Mejora Lograda"
+		_play_win_sound()
 		blacksmith_improvement_achieved.emit()
 		Engine.set_meta("blacksmith_improvement_achieved", true)
 
@@ -112,3 +119,24 @@ func _on_button_pressed() -> void:
 	queue_free()
 	if SceneTransition:
 		SceneTransition.fade_in(0.3)
+
+func _play_click_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/click.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)
+
+func _play_win_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/win.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)
+
+func _play_lose_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/lose.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)

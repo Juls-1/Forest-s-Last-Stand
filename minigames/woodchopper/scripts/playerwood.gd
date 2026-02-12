@@ -47,8 +47,15 @@ func move_right():
 func reduce_hp():
 	hp -= 1
 	if hp == 0:
-		play_player_death_sound()
+		_play_lose_sound()
 		game.set_game_over()
+
+func _play_lose_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/lose.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)
 
 func _input(event: InputEvent):
 	if !game.game_over:

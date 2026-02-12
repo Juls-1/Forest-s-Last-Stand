@@ -32,10 +32,15 @@ func _ready() -> void:
 	_on_bet_slider_changed(bet_slider.value)
 
 	red_btn.pressed.connect(_on_red_pressed)
+	red_btn.pressed.connect(_play_click_sound)
 	black_btn.pressed.connect(_on_black_pressed)
+	black_btn.pressed.connect(_play_click_sound)
 	green_btn.pressed.connect(_on_green_pressed)
+	green_btn.pressed.connect(_play_click_sound)
 	accept_btn.pressed.connect(_on_accept_pressed)
+	accept_btn.pressed.connect(_play_click_sound)
 	cancel_btn.pressed.connect(_on_cancel_pressed)
+	cancel_btn.pressed.connect(_play_click_sound)
 	if message_label:
 		message_label.visible = false
 	await get_tree().process_frame
@@ -95,6 +100,7 @@ func _spin_then_read_winner() -> void:
 	var target_scroll: float = randf() * max_scroll if max_scroll > 0 else 0.0
 	var duration: float = 2.0 + randf() * 1.0
 	viewport_scroll.scroll_horizontal = 0
+	_play_roulette_sound()
 	var tween := create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
@@ -141,6 +147,10 @@ func _finish_spin(winning_value: int, bet: int) -> void:
 	if message_label and bet > 0:
 		message_label.visible = true
 		message_label.text = "Ganaste!" if won else "Perdiste."
+		if won:
+			_play_win_sound()
+		else:
+			_play_lose_sound()
 	selected_color = BetColor.NONE
 	is_spinning = false
 	accept_btn.disabled = false
@@ -152,6 +162,34 @@ func _is_red(value: int) -> bool:
 
 func _is_black(value: int) -> bool:
 	return value != 0 and value % 2 == 0
+
+func _play_click_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/click.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)
+
+func _play_roulette_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/roulette.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)
+
+func _play_win_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/win.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)
+
+func _play_lose_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/lose.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)
 
 func _on_cancel_pressed() -> void:
 	if is_spinning:

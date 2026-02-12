@@ -48,12 +48,19 @@ func _ready() -> void:
 	_update_tool_labels()
 
 	wood_buy_btn.pressed.connect(_on_wood_buy_pressed)
+	wood_buy_btn.pressed.connect(_play_click_sound)
 	wood_sell_btn.pressed.connect(_on_wood_sell_pressed)
+	wood_sell_btn.pressed.connect(_play_click_sound)
 	rock_buy_btn.pressed.connect(_on_rock_buy_pressed)
+	rock_buy_btn.pressed.connect(_play_click_sound)
 	rock_sell_btn.pressed.connect(_on_rock_sell_pressed)
+	rock_sell_btn.pressed.connect(_play_click_sound)
 	axe_upgrade_btn.pressed.connect(_on_axe_upgrade_pressed)
+	axe_upgrade_btn.pressed.connect(_play_click_sound)
 	pickaxe_upgrade_btn.pressed.connect(_on_pickaxe_upgrade_pressed)
+	pickaxe_upgrade_btn.pressed.connect(_play_click_sound)
 	back_btn.pressed.connect(_on_back_pressed)
+	back_btn.pressed.connect(_play_click_sound)
 
 func _refresh_display() -> void:
 	if money_label:
@@ -176,3 +183,10 @@ func _on_back_pressed() -> void:
 	queue_free()
 	if SceneTransition:
 		SceneTransition.fade_in(0.3)
+
+func _play_click_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/click.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)

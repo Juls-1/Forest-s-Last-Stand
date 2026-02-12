@@ -12,6 +12,14 @@ func _ready() -> void:
 	game_over_screen.visible = false
 	update_label()
 	last_mouse_mode = Input.mouse_mode
+	
+
+	if SoundManager and SoundManager.current_scene == "town":
+		SoundManager.pause_music()
+	
+	#if button:
+		#button.pressed.connect(_on_button_pressed)
+		#button.pressed.connect(_play_click_sound)
 
 
 
@@ -32,16 +40,30 @@ func _on_button_pressed() -> void:
 		resource_manager.add_resources(0, 0, stone_collected)  
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
+	_play_click_sound() #######
 	if SceneTransition:
 		SceneTransition.fade_out(0.3)
 		await SceneTransition.fade_out_finished
 	get_tree().paused = false
 	
-
+	
 	if SoundManager and SoundManager.current_scene == "town":
 		SoundManager.resume_music()
-	
+
 	queue_free()
 	if SceneTransition:
 		SceneTransition.fade_in(0.3)
+
+func _play_click_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/click.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)
+
+func _play_explosion_sound():
+	var sound_path = "res://assets/sound/attacks_and_mosnters/lose.mp3"
+	if ResourceLoader.exists(sound_path):
+		var sound = load(sound_path)
+		if SoundManager and sound:
+			SoundManager.play_global_sfx(sound)
