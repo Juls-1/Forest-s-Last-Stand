@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdl3dlb4dh8hf"]
+[gd_scene load_steps=14 format=3 uid="uid://bdl3dlb4dh8hf"]
 
 [ext_resource type="Texture2D" uid="uid://s4uinnfuv8hk" path="res://minigames/whack-a-stone/sprites/whack_a_stone_bg.png" id="1_xpqvx"]
 [ext_resource type="Script" uid="uid://ba7bw547o47aq" path="res://minigames/whack-a-stone/scripts/whack_a_stone.gd" id="1_yvhvv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dn7n3o4adfdkx" path="res://minigames/whack-a-stone/sprites/rock.png" id="5_wjk7y"]
 [ext_resource type="Texture2D" uid="uid://csqaejk20l3oe" path="res://minigames/whack-a-stone/sprites/clock_icon.png" id="6_3j3pn"]
 [ext_resource type="FontFile" uid="uid://cofv808qgpv2h" path="res://assets/fonts/Silkscreen-Regular.ttf" id="7_5ta4u"]
+[ext_resource type="AudioStream" uid="uid://ban8gkssk0kas" path="res://assets/sound/music/caves_bgm.mp3" id="8_byk4f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3j3pn"]
 bg_color = Color(0.06469653, 0.06469653, 0.06469653, 0.6117647)
@@ -228,5 +229,10 @@ theme_override_fonts/font = ExtResource("7_5ta4u")
 theme_override_font_sizes/font_size = 32
 text = "VOLVER"
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_byk4f")
+volume_db = -12.0
+autoplay = true
 
 [connection signal="pressed" from="GameOverScreen/Button" to="." method="_on_button_pressed"]

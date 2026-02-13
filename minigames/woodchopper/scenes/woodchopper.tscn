@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cosjlpcbr62rr"]
+[gd_scene load_steps=18 format=3 uid="uid://cosjlpcbr62rr"]
 
 [ext_resource type="Script" uid="uid://c6oxsclmc0224" path="res://minigames/woodchopper/scripts/playerwood.gd" id="1_84oo1"]
 [ext_resource type="Script" uid="uid://1qsdv5rn8y1f" path="res://minigames/woodchopper/scripts/woodchopper.gd" id="1_tyyj5"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b7krdrhxesw6q" path="res://minigames/woodchopper/sprites/player_animation.png" id="9_fl47g"]
 [ext_resource type="Texture2D" uid="uid://bw1mtw17kw55h" path="res://minigames/woodchopper/sprites/clock_icon.png" id="10_1xtpx"]
 [ext_resource type="Texture2D" uid="uid://dwjfkvna7ku0i" path="res://assets/art/Pixel Art Icon Pack - RPG/Material/Wood Log.png" id="11_8y6rm"]
+[ext_resource type="AudioStream" uid="uid://dwu131wcvlxb0" path="res://minigames/woodchopper/music/ForestWalk-320bit(chosic.com).mp3" id="12_ew5gp"]
 
 [sub_resource type="Animation" id="Animation_fl47g"]
 length = 0.001
@@ -372,6 +373,11 @@ theme_override_fonts/font = ExtResource("9_71l07")
 theme_override_font_sizes/font_size = 30
 text = "VOLVER
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ew5gp")
+volume_db = -12.0
+autoplay = true
 
 [connection signal="tree_anim_finished" from="Tree" to="Player" method="_on_tree_tree_anim_finished"]
 [connection signal="axe_swung" from="Player" to="Tree" method="_on_player_axe_swung"]

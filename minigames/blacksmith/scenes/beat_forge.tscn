@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://do6tey7x44gjf" path="res://minigames/blacksmith/scripts/beat_forge.gd" id="1_xwgc8"]
 [ext_resource type="Texture2D" uid="uid://cbiee2hoy3io" path="res://minigames/blacksmith/sprites/forge_bg.png" id="2_6d80v"]
-[ext_resource type="PackedScene" path="res://minigames/blacksmith/scenes/visual_target.tscn" id="2_c7p1g"]
+[ext_resource type="PackedScene" uid="uid://dds3a8wrx1b20" path="res://minigames/blacksmith/scenes/visual_target.tscn" id="2_c7p1g"]
 [ext_resource type="Script" uid="uid://vibvs5youif5" path="res://minigames/blacksmith/scripts/song_importer.gd" id="2_ggl6f"]
 [ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="3_1gou3"]
 [ext_resource type="Script" uid="uid://wncyyxgvmv1i" path="res://minigames/blacksmith/scripts/hammer.gd" id="3_8vckl"]

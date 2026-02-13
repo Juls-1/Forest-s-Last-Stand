@@ -1,6 +1,10 @@
 extends CanvasLayer
 
-const TEST_SONG_PATH:String = "res://minigames/blacksmith/song_data/song_01-135bpm.csv"
+const SONG_01_PATH:String = "res://minigames/blacksmith/song_data/song_01-135bpm.csv"
+const SONG_02_PATH:String = "res://minigames/blacksmith/song_data/song_02-120bpm.csv"
+const SONG_01_AUDIO = preload("res://minigames/blacksmith/music/song_01-135bpm.wav")
+const SONG_02_AUDIO = preload("res://minigames/blacksmith/music/song_02-120bpm.wav")
+
 const SPAWN_AHEAD_TIME:float = 1.0
 const MISS_THRESHOLD:float = 0.1
 
@@ -25,9 +29,21 @@ var targets:PackedFloat32Array =  []
 var current_target:float
 var t_index:int = 0
 var spawn_index:int = 0
+var ending_beat:int
 
 func _ready() -> void:
-	importer.import_song(TEST_SONG_PATH)
+	var rand_num = randi() % 2
+	var song_path:String
+	if rand_num == 1:
+		song_path = SONG_01_PATH
+		player.stream = SONG_01_AUDIO
+		ending_beat = 44
+	else:
+		song_path = SONG_02_PATH
+		player.stream = SONG_02_AUDIO
+		ending_beat = 70
+	
+	importer.import_song(song_path)
 	rn.bpm = importer.song.bpm
 	
 	# Pausar la música de town
@@ -43,7 +59,7 @@ func _ready() -> void:
 	score_tracker.min_score = targets.size() * -5
 	score_tracker.update_score_bar()
 	
-	rn.beats(0, false, 44).connect(func(_i): 
+	rn.beats(0, false, ending_beat).connect(func(_i): 
 		rn.audio_stream_player.stop()
 		score_tracker.game_over()
 		hammer._lock_input()

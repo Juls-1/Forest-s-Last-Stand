@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cmafwk3bhfg0k"
+
+[deps]
+
+files=["res://minigames/blacksmith/song_data/song_02-120bpm.beat.translation"]
+
+source_file="res://minigames/blacksmith/song_data/song_02-120bpm.csv"
+dest_files=["res://minigames/blacksmith/song_data/song_02-120bpm.beat.translation"]
+
+[params]
+
+compress=true
+delimiter=0
