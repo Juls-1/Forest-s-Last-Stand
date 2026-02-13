@@ -16,7 +16,9 @@ var current_wave: int = 0
 var enemies_reached_entrance: int = 0
 var wave_ending: bool = false
 
-var current_location: String = "town"
+var current_location: String = "world"
+const SCENE_PATH_TOWN: String = "res://scenes/levels/town.tscn"
+const SCENE_PATH_WORLD: String = "res://scenes/levels/world.tscn"
 var gold: int: get = _get_gold
 var wood: int: get = _get_wood
 var stone: int: get = _get_stone
@@ -50,9 +52,26 @@ func _ready() -> void:
 	_find_canvas_modulate()
 	_connect_signals()
 	_restore_game_state()
-	
+	var _saved = SessionPersistence.load_session()
+	if get_tree().current_scene and not (_saved is Dictionary and _saved.get("game_state")):
+		set_location_from_scene_path(get_tree().current_scene.scene_file_path)
+
 	if current_day <= 0:
 		start_new_day()
+
+func set_location_from_scene_path(path: String) -> void:
+	if not path or path == "":
+		return
+	if path == SCENE_PATH_TOWN:
+		current_location = "town"
+		if SoundManager:
+			SoundManager.play_music_for_scene("town", false)
+	elif path == SCENE_PATH_WORLD:
+		current_location = "world"
+		if SoundManager:
+			SoundManager.play_music_for_scene("world", is_night)
+	else:
+		pass
 
 func _restore_game_state() -> void:
 	var data = SessionPersistence.load_session()
@@ -273,28 +292,28 @@ func start_unit_placement(unit_type: String) -> void:
 		placement_manager.start_placement(unit_type)
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		_handle_debug_input(event.keycode)
+	#if event is InputEventKey and event.pressed:
+		#_handle_debug_input(event.keycode)
 	if placement_manager and placement_manager.is_placing and event is InputEventMouseButton and event.pressed:
 		_handle_placement_input(event)
 
-func _handle_debug_input(keycode: int) -> void:
-	match keycode:
-		KEY_N:
-			if current_location == "world" and not is_night:
-				start_night()
-		KEY_D:
-			if is_night and enemies_remaining <= 0:
-				end_wave()
-		KEY_1:
-			if current_location == "world" and not is_night and can_afford_unit("archer"):
-				recruit_unit("archer", get_global_mouse_position())
-		KEY_2:
-			if current_location == "world" and not is_night and can_afford_unit("soldier"):
-				recruit_unit("soldier", get_global_mouse_position())
-		KEY_ESCAPE:
-			if placement_manager and placement_manager.is_placing:
-				placement_manager.cancel_placement()
+#func _handle_debug_input(keycode: int) -> void:
+	#match keycode:
+		#KEY_N:
+			#if current_location == "world" and not is_night:
+				#start_night()
+		#KEY_D:
+			#if is_night and enemies_remaining <= 0:
+				#end_wave()
+		#KEY_1:
+			#if current_location == "world" and not is_night and can_afford_unit("archer"):
+				#recruit_unit("archer", get_global_mouse_position())
+		#KEY_2:
+			#if current_location == "world" and not is_night and can_afford_unit("soldier"):
+				#recruit_unit("soldier", get_global_mouse_position())
+		#KEY_ESCAPE:
+			#if placement_manager and placement_manager.is_placing:
+				#placement_manager.cancel_placement()
 
 func _handle_placement_input(event: InputEventMouseButton) -> void:
 	if event.button_index == MOUSE_BUTTON_LEFT:

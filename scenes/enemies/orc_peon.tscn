@@ -516,7 +516,9 @@ radius = 16.0
 collision_mask = 2
 script = ExtResource("1_orc")
 max_health = 60
-damage = 100
+speed = 60.0
+damage = 15
+gold_value = 10
 metadata/enemy_type = "basic"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
