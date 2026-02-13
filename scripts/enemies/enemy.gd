@@ -23,7 +23,7 @@ const DEFAULT_ATTACK_COOLDOWN: float = 0.5
 const REACHED_END_DISTANCE: float = 50.0
 
 @export var max_health: int = 30
-@export var speed: float = 500.0
+@export var speed: float = 50
 @export var damage: int = 10
 @export var gold_value: int = 5
 @export var enemy_type: String = "basic"
@@ -127,7 +127,6 @@ func _execute_attack(current_target: Node2D) -> void:
 	if movement_component:
 		if "clear_target" in movement_component:
 			movement_component.clear_target()
-		# ensure the character body stops immediately
 		velocity = Vector2.ZERO
 		move_and_slide()
 	

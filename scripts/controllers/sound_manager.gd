@@ -27,7 +27,7 @@ func _ready():
 		add_child(p)
 		sfx_pool.append(p)
 
-func play_music(stream: AudioStream, crossfade: float = 0.5):
+func play_music(stream: AudioStream, _crossfade: float = 0.5):
 	if music_player.stream == stream and music_player.playing:
 		return
 	music_player.stream = stream
@@ -72,7 +72,6 @@ func play_track(track_name: String):
 	var track_path = "res://assets/sound/music/" + track_name
 	
 	if not ResourceLoader.exists(track_path):
-		#print("Music track not found: ", track_path)
 		return
 	
 	var audio_stream = load(track_path)
@@ -81,7 +80,6 @@ func play_track(track_name: String):
 		music_player.play()
 		current_track = track_name
 		music_changed.emit(track_name)
-		#print("Playing music: ", track_name)
 
 func stop_music():
 	if music_player.playing:

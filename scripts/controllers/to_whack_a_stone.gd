@@ -1,8 +1,10 @@
 extends Area2D
 
 @export var whack_a_stone_scene_path: String = "res://minigames/whack-a-stone/scenes/whack_a_stone.tscn"
+@export var tutorial_scene_path: String = "res://tutorial/tutorial_whackastone.tscn"
 
 var player_in_area: bool = false
+var tutorial_instance: CanvasLayer = null
 
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("player"):
@@ -17,6 +19,9 @@ func _input(event: InputEvent):
 		if event.keycode == KEY_E and player_in_area:
 			get_viewport().set_input_as_handled()
 			_enter_whack_a_stone_minigame()
+		elif event.keycode == KEY_T and player_in_area:
+			get_viewport().set_input_as_handled()
+			_show_tutorial()
 		
 func _enter_whack_a_stone_minigame():
 	_do_enter_with_fade()
@@ -36,3 +41,17 @@ func _do_enter_with_fade() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if SceneTransition:
 		SceneTransition.fade_in(0.3)
+
+func _show_tutorial():
+	if tutorial_instance:
+		return  
+	
+	var tutorial_scene = load(tutorial_scene_path)
+	if tutorial_scene:
+		tutorial_instance = tutorial_scene.instantiate()
+		get_tree().current_scene.add_child(tutorial_instance)
+		
+		tutorial_instance.tree_exiting.connect(_on_tutorial_closed)
+
+func _on_tutorial_closed():
+	tutorial_instance = null

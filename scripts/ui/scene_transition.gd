@@ -31,7 +31,6 @@ func fade_in(duration: float = 0.35) -> void:
 	tween.tween_callback(func(): fade_in_finished.emit())
 
 func transition_to_scene(fade_duration: float, change_callable: Callable) -> void:
-	""" Fade out -> ejecuta change_callable (guardar + change_scene_to_file) -> fade in. Llamar con await desde el script que cambia de escena. """
 	fade_out(fade_duration)
 	await fade_out_finished
 	change_callable.call()

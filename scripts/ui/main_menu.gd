@@ -19,7 +19,7 @@ func _on_start_button_pressed():
 	await SceneTransition.transition_to_scene(
 		0.35,
 		func():
-			get_tree().change_scene_to_file("res://scenes/levels/town.tscn")
+			get_tree().change_scene_to_file("res://tutorial/cutscene1.tscn")
 	)
 
 func _on_quit_button_pressed():

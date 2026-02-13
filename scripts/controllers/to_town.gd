@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var target_scene: String = "" # Si se deja vacío, se infiere por el nombre del nodo
+@export var target_scene: String = ""
 var _player_inside: bool = false
 var _transitioning: bool = false
 func _ready() -> void:

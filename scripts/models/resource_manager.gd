@@ -7,7 +7,7 @@ var resources: Dictionary = {
 	"wood": 0,
 	"stone": 0
 }
-var pickaxe_tier: int = 1  # Tier 1 (default), Tier 2, Tier 3
+var pickaxe_tier: int = 1 
 const UNIT_COSTS = {
 	"archer": {"gold": 25, "wood": 10},
 	"soldier": {"gold": 15, "stone": 5},

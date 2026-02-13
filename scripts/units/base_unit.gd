@@ -116,7 +116,7 @@ func _find_nearby_enemy() -> void:
 				set_target(enemy)
 				break
 
-func _update_moving_state(delta: float) -> void:
+func _update_moving_state(_delta: float) -> void:
 	if not has_target:
 		return
 	var direction = (target_position - global_position).normalized()

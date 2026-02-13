@@ -36,7 +36,6 @@ func _reach_target() -> void:
 	has_target = false
 	if navigation_agent:
 		navigation_agent.set_velocity(Vector2.ZERO)
-	# ensure consumers know we reached the target
 	target_reached.emit()
 
 func _move_toward_next_position() -> void:
@@ -63,7 +62,6 @@ func set_speed_modifier(modifier: float) -> void:
 	speed_modifier = modifier
 
 func clear_target() -> void:
-	# Stop navigation agent and clear target state
 	has_target = false
 	if navigation_agent:
 		navigation_agent.set_velocity(Vector2.ZERO)

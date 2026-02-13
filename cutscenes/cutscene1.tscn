@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://byqv64vsadp6g" path="res://assets/art/Tiles/cottage.png" id="14_5blgn"]
 [ext_resource type="Texture2D" uid="uid://wimgpps7486y" path="res://assets/art/Tiles/thatched-roof.png" id="15_0xo4r"]
 [ext_resource type="Texture2D" uid="uid://bo505rt0xk4qf" path="res://assets/art/characters/Archer-Green.png" id="16_cnjej"]
+[ext_resource type="Script" path="res://scripts/cutscene1.gd" id="17_cutscene_script"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vs1ej"]
 texture = ExtResource("1_4eqqx")
@@ -10262,6 +10263,7 @@ _data = {
 }
 
 [node name="Cutscene1" type="Node2D"]
+script = ExtResource("17_cutscene_script")
 
 [node name="Terrain" type="Node" parent="."]
 

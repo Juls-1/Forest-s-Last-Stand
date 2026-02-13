@@ -11,4 +11,4 @@ var current_wave: int = 0
 var enemies_remaining: int = 0
 var enemies_reached_entrance: int = 0
 
-var location: String = "world" # "world" o "town"
+var location: String = "town" 
